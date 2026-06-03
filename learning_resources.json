@@ -1,0 +1,241 @@
+{
+  "react": {
+
+    "course":
+    "React Beginner Tutorial",
+
+    "platform":
+    "YouTube",
+
+    "link":
+    "https://www.youtube.com/watch?v=bMknfKXIFA8"
+  },
+
+  "javascript": {
+
+    "course":
+    "JavaScript Full Course",
+
+    "platform":
+    "YouTube",
+
+    "link":
+    "https://www.youtube.com/watch?v=PkZNo7MFNFg"
+  },
+
+  "html": {
+
+    "course":
+    "HTML Complete Course",
+
+    "platform":
+    "freeCodeCamp",
+
+    "link":
+    "https://www.youtube.com/watch?v=pQN-pnXPaVg"
+  },
+
+  "css": {
+
+    "course":
+    "CSS Mastery Course",
+
+    "platform":
+    "YouTube",
+
+    "link":
+    "https://www.youtube.com/watch?v=1Rs2ND1ryYc"
+  },
+
+  "responsive design": {
+
+    "course":
+    "Responsive Web Design",
+
+    "platform":
+    "freeCodeCamp",
+
+    "link":
+    "https://www.freecodecamp.org/learn/2022/responsive-web-design/"
+  },
+
+  "node": {
+
+    "course":
+    "Node.js Full Course",
+
+    "platform":
+    "YouTube",
+
+    "link":
+    "https://www.youtube.com/watch?v=RLtyhwFtXQA"
+  },
+
+  "mongodb": {
+
+    "course":
+    "MongoDB Basics",
+
+    "platform":
+    "MongoDB University",
+
+    "link":
+    "https://learn.mongodb.com/"
+  },
+
+  "python": {
+
+    "course":
+    "Python for Beginners",
+
+    "platform":
+    "YouTube",
+
+    "link":
+    "https://www.youtube.com/watch?v=_uQrJ0TkZlc"
+  },
+
+  "flask": {
+
+    "course":
+    "Flask Web Development",
+
+    "platform":
+    "YouTube",
+
+    "link":
+    "https://www.youtube.com/watch?v=Z1RJmh_OqeA"
+  },
+
+  "rest api": {
+
+    "course":
+    "REST API Crash Course",
+
+    "platform":
+    "YouTube",
+
+    "link":
+    "https://www.youtube.com/watch?v=Q-BpqyOT3a8"
+  },
+
+  "sql": {
+
+    "course":
+    "SQL Full Course",
+
+    "platform":
+    "YouTube",
+
+    "link":
+    "https://www.youtube.com/watch?v=HXV3zeQKqGY"
+  },
+
+  "security": {
+
+    "course":
+    "Web Security Fundamentals",
+
+    "platform":
+    "Coursera",
+
+    "link":
+    "https://www.coursera.org/learn/intro-cyber-security"
+  },
+
+  "jwt": {
+
+    "course":
+    "JWT Authentication Tutorial",
+
+    "platform":
+    "YouTube",
+
+    "link":
+    "https://www.youtube.com/watch?v=7Q17ubqLfaM"
+  },
+
+  "power bi": {
+
+    "course":
+    "Power BI for Beginners",
+
+    "platform":
+    "YouTube",
+
+    "link":
+    "https://www.youtube.com/watch?v=AGrl-H87pRU"
+  },
+
+  "tableau": {
+
+    "course":
+    "Tableau Complete Course",
+
+    "platform":
+    "Coursera",
+
+    "link":
+    "https://www.coursera.org/learn/data-visualization-tableau"
+  },
+
+  "etl": {
+
+    "course":
+    "ETL and Data Pipelines",
+
+    "platform":
+    "Udemy",
+
+    "link":
+    "https://www.udemy.com/course/etl-data-warehouse/"
+  },
+
+  "excel": {
+
+    "course":
+    "Excel for Data Analysis",
+
+    "platform":
+    "YouTube",
+
+    "link":
+    "https://www.youtube.com/watch?v=Vl0H-qTclOg"
+  },
+
+  "kpi": {
+
+    "course":
+    "Business KPI Fundamentals",
+
+    "platform":
+    "Coursera",
+
+    "link":
+    "https://www.coursera.org/learn/metrics-kpi"
+  },
+
+  "data cleaning": {
+
+    "course":
+    "Data Cleaning with Python",
+
+    "platform":
+    "YouTube",
+
+    "link":
+    "https://www.youtube.com/watch?v=bDhvCp3_lYw"
+  },
+
+  "visualization": {
+
+    "course":
+    "Data Visualization Basics",
+
+    "platform":
+    "Coursera",
+
+    "link":
+    "https://www.coursera.org/learn/datavisualization"
+  }
+}

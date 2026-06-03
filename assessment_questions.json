@@ -1,0 +1,458 @@
+{
+  "Frontend Developer": [
+
+    {
+      "question": "What is Flexbox in CSS?",
+
+      "skills": [
+        "CSS",
+        "Flexbox",
+        "Responsive Design"
+      ],
+
+      "options": [
+        "Database System",
+        "CSS Layout System",
+        "Python Framework",
+        "API Protocol"
+      ],
+
+      "correctAnswer": "CSS Layout System",
+
+      "difficulty": "Easy",
+
+      "category": "CSS",
+
+      "marks": 10,
+
+      "explanation":
+      "Flexbox is a CSS layout model used to align and distribute elements efficiently."
+    },
+
+    {
+      "question": "What is React used for?",
+
+      "skills": [
+        "React",
+        "Frontend",
+        "JavaScript",
+        "UI"
+      ],
+
+      "options": [
+        "Database Management",
+        "Frontend Development",
+        "Operating System",
+        "Cybersecurity"
+      ],
+
+      "correctAnswer": "Frontend Development",
+
+      "difficulty": "Medium",
+
+      "category": "React",
+
+      "marks": 15,
+
+      "explanation":
+      "React is used for building interactive user interfaces."
+    },
+
+    {
+      "question": "What does DOM stand for?",
+
+      "skills": [
+        "DOM",
+        "JavaScript",
+        "HTML"
+      ],
+
+      "options": [
+        "Document Object Model",
+        "Data Object Management",
+        "Dynamic Output Method",
+        "Desktop Oriented Model"
+      ],
+
+      "correctAnswer":
+      "Document Object Model",
+
+      "difficulty":
+      "Easy",
+
+      "category":
+      "JavaScript",
+
+      "marks":
+      10,
+
+      "explanation":
+      "DOM represents HTML elements as objects that JavaScript can manipulate."
+    }
+
+  ],
+
+  "Backend Developer": [
+
+    {
+      "question": "What is Flask?",
+
+      "skills": [
+        "Python",
+        "Flask",
+        "Backend"
+      ],
+
+      "options": [
+        "Database",
+        "Python Framework",
+        "CSS Library",
+        "Browser Engine"
+      ],
+
+      "correctAnswer":
+      "Python Framework",
+
+      "difficulty":
+      "Easy",
+
+      "category":
+      "Python",
+
+      "marks":
+      10,
+
+      "explanation":
+      "Flask is a lightweight Python web framework."
+    },
+
+    {
+      "question": "What does REST API use?",
+
+      "skills": [
+        "REST API",
+        "HTTP",
+        "Backend"
+      ],
+
+      "options": [
+        "HTTP Methods",
+        "CSS Grid",
+        "Machine Learning",
+        "Blockchain"
+      ],
+
+      "correctAnswer":
+      "HTTP Methods",
+
+      "difficulty":
+      "Medium",
+
+      "category":
+      "API",
+
+      "marks":
+      15,
+
+      "explanation":
+      "REST APIs communicate using HTTP methods."
+    },
+
+    {
+      "question": "What is SQL Injection?",
+
+      "skills": [
+        "SQL",
+        "Security",
+        "Database"
+      ],
+
+      "options": [
+        "Security Attack",
+        "Frontend Framework",
+        "CSS Technique",
+        "Cloud Service"
+      ],
+
+      "correctAnswer":
+      "Security Attack",
+
+      "difficulty":
+      "Hard",
+
+      "category":
+      "Security",
+
+      "marks":
+      20,
+
+      "explanation":
+      "SQL Injection is a cyberattack using malicious SQL queries."
+    }
+
+  ],
+
+  "Data Analyst": [
+
+    {
+      "question": "What is ETL?",
+
+      "skills": [
+        "ETL",
+        "Data Engineering",
+        "Pipeline"
+      ],
+
+      "options": [
+        "Data Pipeline Process",
+        "CSS Layout",
+        "Programming Language",
+        "Cloud Platform"
+      ],
+
+      "correctAnswer":
+      "Data Pipeline Process",
+
+      "difficulty":
+      "Medium",
+
+      "category":
+      "ETL",
+
+      "marks":
+      15,
+
+      "explanation":
+      "ETL stands for Extract, Transform and Load."
+    },
+
+    {
+      "question": "What does KPI stand for?",
+
+      "skills": [
+        "KPI",
+        "Business Analytics",
+        "Metrics"
+      ],
+
+      "options": [
+        "Key Performance Indicator",
+        "Knowledge Process Integration",
+        "Kernel Programming Interface",
+        "Key Product Information"
+      ],
+
+      "correctAnswer":
+      "Key Performance Indicator",
+
+      "difficulty":
+      "Easy",
+
+      "category":
+      "Business Analytics",
+
+      "marks":
+      10,
+
+      "explanation":
+      "KPIs measure business performance."
+    },
+
+    {
+      "question": "Which SQL clause groups rows?",
+
+      "skills": [
+        "SQL",
+        "GROUP BY",
+        "Aggregation"
+      ],
+
+      "options": [
+        "GROUP BY",
+        "ORDER BY",
+        "WHERE",
+        "SELECT"
+      ],
+
+      "correctAnswer":
+      "GROUP BY",
+
+      "difficulty":
+      "Hard",
+
+      "category":
+      "SQL",
+
+      "marks":
+      20,
+
+      "explanation":
+      "GROUP BY groups rows with similar values."
+    }
+
+  ],
+
+  "Full Stack Developer": [
+
+    {
+      "question": "What is React primarily used for?",
+
+      "skills": [
+        "React",
+        "Frontend",
+        "JavaScript"
+      ],
+
+      "options": [
+        "Database Management",
+        "Building User Interfaces",
+        "Server Hosting",
+        "Operating System"
+      ],
+
+      "correctAnswer":
+      "Building User Interfaces",
+
+      "difficulty":
+      "Easy",
+
+      "category":
+      "React",
+
+      "marks":
+      10,
+
+      "explanation":
+      "React is a JavaScript library used for building interactive user interfaces."
+    },
+
+    {
+      "question": "Which HTTP method is commonly used to create data in REST API?",
+
+      "skills": [
+        "REST API",
+        "HTTP",
+        "Backend"
+      ],
+
+      "options": [
+        "GET",
+        "DELETE",
+        "POST",
+        "PUT"
+      ],
+
+      "correctAnswer":
+      "POST",
+
+      "difficulty":
+      "Easy",
+
+      "category":
+      "API",
+
+      "marks":
+      10,
+
+      "explanation":
+      "POST method is used to create new resources in REST APIs."
+    },
+
+    {
+      "question": "What does JWT stand for?",
+
+      "skills": [
+        "JWT",
+        "Authentication",
+        "Security"
+      ],
+
+      "options": [
+        "Java Web Token",
+        "JSON Web Token",
+        "JavaScript Web Transfer",
+        "JSON Worker Thread"
+      ],
+
+      "correctAnswer":
+      "JSON Web Token",
+
+      "difficulty":
+      "Medium",
+
+      "category":
+      "Authentication",
+
+      "marks":
+      15,
+
+      "explanation":
+      "JWT stands for JSON Web Token and is commonly used for authentication."
+    },
+
+    {
+      "question": "Which database is commonly used with MERN stack?",
+
+      "skills": [
+        "MongoDB",
+        "Database",
+        "MERN"
+      ],
+
+      "options": [
+        "Oracle",
+        "MongoDB",
+        "SQLite",
+        "PostgreSQL"
+      ],
+
+      "correctAnswer":
+      "MongoDB",
+
+      "difficulty":
+      "Easy",
+
+      "category":
+      "Database",
+
+      "marks":
+      10,
+
+      "explanation":
+      "MongoDB is the NoSQL database commonly used in MERN stack applications."
+    },
+
+    {
+      "question": "What is Express.js used for?",
+
+      "skills": [
+        "Express.js",
+        "Node.js",
+        "Backend"
+      ],
+
+      "options": [
+        "Frontend Styling",
+        "Machine Learning",
+        "Backend Framework",
+        "Cloud Storage"
+      ],
+
+      "correctAnswer":
+      "Backend Framework",
+
+      "difficulty":
+      "Medium",
+
+      "category":
+      "Backend",
+
+      "marks":
+      15,
+
+      "explanation":
+      "Express.js is a backend framework for Node.js used to build APIs and web applications."
+    }
+
+  ]
+}

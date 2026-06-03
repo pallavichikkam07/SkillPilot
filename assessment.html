@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0">
+
+<title>SkillPilot Assessment</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='css/skillpilotstyle.css') }}">
+
+</head>
+
+<body>
+
+<div class="assessment-container">
+
+    <div class="assessment-card">
+
+        <!-- TITLE -->
+
+        <h1 class="assessment-title">
+
+            🧠 Skill Assessment Test
+
+        </h1>
+
+        <!-- PROGRESS BAR -->
+
+        <div class="interview-progress">
+
+            <div class="interview-progress-fill">
+
+            </div>
+
+        </div>
+
+        <!-- QUESTION NUMBER -->
+
+        <h2 id="assessment-question-number">
+
+            Question 1 /
+            {{ questions|length }}
+
+        </h2>
+
+        <!-- QUESTION INFO -->
+
+        <div class="question-info">
+
+            <!-- CATEGORY -->
+
+            <div class="info-badge category-badge">
+
+                📚
+                <span id="assessment-category">
+
+                    {{ questions[0].category }}
+
+                </span>
+
+            </div>
+
+            <!-- DIFFICULTY -->
+
+            <div class="info-badge difficulty-badge">
+
+                ⚡
+                <span id="assessment-difficulty">
+
+                    {{ questions[0].difficulty }}
+
+                </span>
+
+            </div>
+
+            <!-- MARKS -->
+
+            <div class="info-badge marks-badge">
+
+                🏆
+                <span id="assessment-marks">
+
+                    {{ questions[0].marks }}
+
+                </span>
+
+                Marks
+
+            </div>
+
+        </div>
+
+        <!-- QUESTION -->
+
+        <div class="question-box">
+
+            <h2 id="assessment-question">
+
+                {{ questions[0].question }}
+
+            </h2>
+
+        </div>
+
+        <!-- OPTIONS -->
+
+        <div class="options-container">
+
+            <button class="option-btn"
+            onclick="selectOption(this)">
+
+                {{ questions[0].options[0] }}
+
+            </button>
+
+            <button class="option-btn"
+            onclick="selectOption(this)">
+
+                {{ questions[0].options[1] }}
+
+            </button>
+
+            <button class="option-btn"
+            onclick="selectOption(this)">
+
+                {{ questions[0].options[2] }}
+
+            </button>
+
+            <button class="option-btn"
+            onclick="selectOption(this)">
+
+                {{ questions[0].options[3] }}
+
+            </button>
+
+        </div>
+
+        <!-- NEXT BUTTON -->
+
+        <button
+
+        class="next-btn"
+
+        onclick="nextAssessmentQuestion()">
+
+            Next Question
+
+        </button>
+
+        <!-- TIMER -->
+
+        <div class="timer-box">
+
+            ⏳ Time Remaining:
+            <span id="assessment-timer">
+
+                10:00
+
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- QUESTIONS -->
+
+<script>
+
+const assessmentData =
+{{ questions | tojson | safe }};
+
+</script>
+
+<!-- JS -->
+
+<script src="{{ url_for('static',
+filename='js/assessment.js') }}">
+
+</script>
+
+</body>
+
+</html>

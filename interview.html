@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0">
+
+<title>SkillPilot Interview</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='css/skillpilotstyle.css') }}">
+
+</head>
+
+<body>
+
+<div class="interview-container">
+
+    <div class="interview-card">
+
+        <!-- TITLE -->
+
+        <h1 class="interview-title">
+
+            🤖  Mock Interview
+
+        </h1>
+
+        <!-- PROGRESS BAR -->
+
+        <div class="interview-progress">
+
+            <div
+            class="interview-progress-fill"
+            id="progress-fill">
+
+            </div>
+
+        </div>
+
+        <!-- QUESTION NUMBER -->
+
+        <h2 id="question-number">
+
+            Question 1 /
+            {{ questions|length }}
+
+        </h2>
+
+        <!-- QUESTION INFO -->
+
+        <div class="question-info">
+
+            <!-- CATEGORY -->
+
+            <div class="info-badge category-badge">
+
+                📚
+                <span id="category">
+
+                    {{ questions[0].category }}
+
+                </span>
+
+            </div>
+
+            <!-- DIFFICULTY -->
+
+            <div class="info-badge difficulty-badge">
+
+                ⚡
+                <span id="difficulty">
+
+                    {{ questions[0].difficulty }}
+
+                </span>
+
+            </div>
+
+            <!-- MARKS -->
+
+            <div class="info-badge marks-badge">
+
+                🏆
+                <span id="marks">
+
+                    {{ questions[0].marks }}
+
+                </span>
+
+                Marks
+
+            </div>
+
+        </div>
+
+        <!-- QUESTION -->
+
+        <div class="question-box">
+
+            <h2 id="question">
+
+                {{ questions[0].question }}
+
+            </h2>
+
+        </div>
+
+        <!-- ANSWER INPUT -->
+
+        <textarea
+
+        id="answer-input"
+
+        placeholder="Type your answer here...">
+
+        </textarea>
+
+        <!-- INTERVIEW TIP -->
+
+        <div class="interview-tip">
+
+            💡 Use technical concepts,
+            examples, and detailed
+            explanations for better scoring.
+
+        </div>
+
+        <!-- BUTTON -->
+
+        <button
+
+        class="next-btn"
+
+        id="next-btn"
+
+        onclick="nextQuestion()">
+
+            Next Question
+
+        </button>
+
+        <!-- TIMER -->
+
+        <div class="timer-box">
+
+            ⏳ Time Remaining:
+            <span id="timer">
+
+                15:00
+
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- INTERVIEW DATA -->
+
+<script>
+
+const interviewData =
+{{ questions | tojson | safe }};
+
+let currentQuestion = 0;
+
+let userAnswers = [];
+
+let totalQuestions =
+interviewData.length;
+
+</script>
+
+<!-- INTERVIEW SCRIPT -->
+
+<script>
+
+function updateProgressBar() {
+
+    let progress = (
+
+        (currentQuestion + 1)
+        / totalQuestions
+
+    ) * 100;
+
+    document.getElementById(
+        "progress-fill"
+    ).style.width =
+
+    progress + "%";
+
+}
+
+updateProgressBar();
+
+function submitInterview() {
+
+    localStorage.setItem(
+
+        "interviewAnswers",
+
+        JSON.stringify(userAnswers)
+
+    );
+
+    fetch(
+
+        "/interview_result",
+
+        {
+
+            method: "POST",
+
+            headers: {
+
+                "Content-Type":
+                "application/json"
+
+            },
+
+            body: JSON.stringify({
+
+                answers: userAnswers
+
+            })
+
+        }
+
+    )
+
+    .then(
+
+        response => response.text()
+
+    )
+
+    .then(
+
+        html => {
+
+            document.open();
+
+            document.write(html);
+
+            document.close();
+
+        }
+
+    );
+
+}
+function nextQuestion() {
+
+    let answer =
+
+    document.getElementById(
+        "answer-input"
+    ).value;
+
+    userAnswers.push({
+
+        question:
+        interviewData[currentQuestion]
+        .question,
+
+        answer: answer,
+
+        difficulty:
+        interviewData[currentQuestion]
+        .difficulty,
+
+        category:
+        interviewData[currentQuestion]
+        .category,
+
+        skills:
+        interviewData[currentQuestion]
+        .skills,
+
+        keywords:
+        interviewData[currentQuestion]
+        .keywords,
+
+        modelAnswer:
+        interviewData[currentQuestion]
+        .modelAnswer
+
+    });
+
+    currentQuestion++;
+
+    if (
+
+        currentQuestion
+        >= totalQuestions
+
+    ) {
+
+        submitInterview();
+
+        return;
+
+    }
+
+    document.getElementById(
+        "question-number"
+    ).innerHTML =
+
+    "Question "
+    + (currentQuestion + 1)
+    + " / "
+    + totalQuestions;
+
+    document.getElementById(
+        "question"
+    ).innerHTML =
+
+    interviewData[currentQuestion]
+    .question;
+
+    document.getElementById(
+        "category"
+    ).innerHTML =
+
+    interviewData[currentQuestion]
+    .category;
+
+    document.getElementById(
+        "difficulty"
+    ).innerHTML =
+
+    interviewData[currentQuestion]
+    .difficulty;
+
+    document.getElementById(
+        "marks"
+    ).innerHTML =
+
+    interviewData[currentQuestion]
+    .marks;
+
+    document.getElementById(
+        "answer-input"
+    ).value = "";
+
+    if (
+
+        currentQuestion
+        == totalQuestions - 1
+
+    ) {
+
+        document.getElementById(
+            "next-btn"
+        ).innerHTML =
+
+        "Submit Interview";
+
+    }
+
+    updateProgressBar();
+
+}
+
+let totalTime = 15 * 60;
+
+let timer =
+
+document.getElementById(
+    "timer"
+);
+
+let countdown =
+
+setInterval(function() {
+
+    let minutes =
+
+    Math.floor(
+        totalTime / 60
+    );
+
+    let seconds =
+
+    totalTime % 60;
+
+    if (seconds < 10) {
+
+        seconds =
+        "0" + seconds;
+
+    }
+
+    timer.innerHTML =
+
+    minutes + ":" + seconds;
+
+    totalTime--;
+
+    if (totalTime < 0) {
+
+        clearInterval(countdown);
+
+        alert(
+            "Interview Time Completed!"
+        );
+
+        submitInterview();
+
+    }
+
+}, 1000);
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0">
+
+<title>SkillPilot Signup</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='css/skillpilotstyle.css') }}">
+
+</head>
+
+<body>
+
+<div class="interview-container">
+
+    <div class="interview-card">
+
+        <h1 class="interview-title">
+
+            🚀 Create Account
+
+        </h1>
+
+        <form action="/signup"
+        method="POST">
+
+            <!-- USERNAME -->
+
+            <input
+
+            type="text"
+
+            name="username"
+
+            placeholder="Enter Username"
+
+            required
+
+            class="answer-input">
+
+            <!-- EMAIL -->
+
+            <input
+
+            type="email"
+
+            name="email"
+
+            placeholder="Enter Email"
+
+            required
+
+            class="answer-input">
+
+            <!-- PASSWORD -->
+
+            <input
+
+            type="password"
+
+            name="password"
+
+            placeholder="Enter Password"
+
+            required
+
+            class="answer-input">
+
+            <button
+
+            type="submit"
+
+            class="next-btn">
+
+                Create Account
+
+            </button>
+
+            <a href="/login">
+
+                             <button
+
+                                              type="button"
+
+                                              class="next-btn"
+
+                                              style="margin-top:15px;">
+
+                                              Login
+
+                             </button>
+
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

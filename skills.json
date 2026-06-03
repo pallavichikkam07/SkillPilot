@@ -1,0 +1,131 @@
+{
+  "Frontend Developer": [
+
+    "html",
+    "css",
+    "javascript",
+    "react",
+    "bootstrap",
+    "responsive design",
+    "tailwind css",
+    "redux",
+    "api integration",
+    "ui ux"
+
+  ],
+
+  "Backend Developer": [
+
+    "python",
+    "flask",
+    "node.js",
+    "express.js",
+    "api",
+    "rest api",
+    "sql",
+    "mongodb",
+    "authentication",
+    "jwt"
+
+  ],
+
+  "Data Analyst": [
+
+    "python",
+    "sql",
+    "excel",
+    "power bi",
+    "tableau",
+    "data visualization",
+    "etl",
+    "business analytics",
+    "statistics",
+    "dashboard"
+
+  ],
+
+  "AI Engineer": [
+
+    "python",
+    "machine learning",
+    "deep learning",
+    "nlp",
+    "tensorflow",
+    "pytorch",
+    "neural networks",
+    "transformers",
+    "computer vision",
+    "generative ai"
+
+  ],
+
+  "Software Engineer": [
+
+    "python",
+    "java",
+    "sql",
+    "algorithms",
+    "git",
+    "data structures",
+    "oop",
+    "problem solving",
+    "github",
+    "debugging"
+
+  ],
+
+  "Full Stack Developer": [
+
+    "html",
+    "css",
+    "javascript",
+    "react",
+    "node.js",
+    "express.js",
+    "mongodb",
+    "rest api",
+    "jwt",
+    "git",
+    "github",
+    "sql",
+    "authentication",
+    "responsive design",
+    "frontend",
+    "backend",
+    "api integration",
+    "database",
+    "deployment",
+    "json"
+
+  ],
+
+  "Data Scientist": [
+
+    "python",
+    "machine learning",
+    "statistics",
+    "data visualization",
+    "pandas",
+    "numpy",
+    "matplotlib",
+    "sql",
+    "deep learning",
+    "predictive analytics"
+
+  ],
+
+  "DevOps Engineer": [
+
+    "docker",
+    "kubernetes",
+    "linux",
+    "aws",
+    "ci cd",
+    "jenkins",
+    "terraform",
+    "github actions",
+    "shell scripting",
+    "monitoring"
+
+  ]
+}
