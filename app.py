@@ -84,27 +84,27 @@ conn.commit()
 # LOAD JSON FILES
 # =========================
 
-with open('data/skills.json', 'r') as file:
+with open('skills.json', 'r') as file:
 
     skills_data = json.load(file)
 
-with open('data/interview_questions.json', 'r') as file:
+with open('interview_questions.json', 'r') as file:
 
     interview_data = json.load(file)
 
-with open('data/assessment_questions.json', 'r') as file:
+with open('assessment_questions.json', 'r') as file:
 
     assessment_data = json.load(file)
 
-with open('data/learning_resources.json', 'r') as file:
+with open('learning_resources.json', 'r') as file:
 
     resources_data = json.load(file)
 
-with open('data/professional_tips.json', 'r') as file:
+with open('professional_tips.json', 'r') as file:
 
     professional_tips = json.load(file)
 
-with open('data/weak_area_training.json', 'r') as file:
+with open('weak_area_training.json', 'r') as file:
 
     weak_area_training = json.load(file)
 
