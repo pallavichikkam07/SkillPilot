@@ -1,0 +1,3783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0">
+
+<title>SkillPilot Dashboard</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='css/skillpilotstyle.css') }}">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href=
+"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+</head>
+<body>
+<div class="toast-notification"
+id="toastNotification">
+
+    ✔ Dashboard Loaded Successfully
+
+</div>
+<div class="loader-wrapper"
+id="loaderWrapper">
+
+    <div class="loader">
+
+    </div>
+
+    <h2>
+
+        SkillPilot 🚀
+
+    </h2>
+
+</div>
+<div class="particles">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+<div class="cursor-glow">
+
+</div>
+<button class="menu-toggle"
+id="menuToggle">
+
+    ☰
+
+</button>
+
+<div class="dashboard-container">
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <h2>🚀 SkillPilot</h2>
+
+        <ul>
+
+            <a href="/">
+
+                <li>🚀 Dashboard</li>
+
+            </a>
+
+            <a href="#analytics">
+
+                <li>📄 Resume Analysis</li>
+
+            </a>
+
+            <a href="#missing-skills">
+
+                <li>🎯 Missing Skills</li>
+
+            </a>
+
+            <a href="#roadmap">
+
+                <li>🛣 Learning Roadmap</li>
+
+            </a>
+
+            <a href="#resources">
+
+                <li>📚 Learning Resources</li>
+
+            </a>
+
+            <a href="/assessment">
+
+                <li>📝 Skill Assessment</li>
+
+            </a>
+
+            <a href="#progress-analytics">
+
+                <li>📈 Progress Analytics</li>
+
+            </a>
+
+            <a href="#professional-readiness">
+
+                <li>💼 Professional Readiness</li>
+
+            </a>
+
+            <a href="/interview">
+
+                <li>🎤 Mock Interview</li>
+
+            </a>
+
+            <a href="#weak-area-training">
+
+                <li>🔥 Improvement Plan</li>
+
+            </a>
+
+            <a href="#resume-feedback">
+
+                <li>📋 Resume Feedback</li>
+
+            </a>     
+        </ul>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+
+    <div class="main-content">
+
+                <!-- TOP NAVBAR -->
+
+        <div class="top-navbar">
+
+         <div>
+
+                  <h2>
+                       <span id="greetingText">
+
+                                Welcome
+
+                       </span>,  
+
+                       {{ session['user'] }}
+
+                       👋
+
+                  </h2>
+
+                  <p style="
+                  margin-top:10px;
+                  color:#cbd5e1;
+                  font-size:16px;">
+
+                           Ready to strengthen your
+
+                           <span style="
+                           color:#00c6ff;
+                           font-weight:600;">
+
+                                    {{ role }}
+
+                           </span>
+
+                           skills today?
+
+                  </p>
+
+                  <div class="live-status">
+
+                           <span class="live-dot">
+
+                           </span>
+
+                           Analytics Active
+
+                  </div>
+
+         </div>
+
+         <div>
+
+                  <a href="/logout">
+
+                           <button class="interview-btn">
+
+                                    Logout
+
+                           </button>
+
+                  </a>
+
+         </div>
+
+        </div>
+        <!-- PROGRESS ANALYTICS -->
+
+        <div class="dashboard-card"
+        id="progress-analytics">
+
+            <h2>
+
+                Progress Analytics
+
+            </h2>
+            <div style="
+            width:100%;
+            max-width:700px;
+            margin:auto;
+            padding-bottom:40px;">
+
+                <canvas id="progressChart">
+
+                </canvas>
+
+            </div>
+
+            <div class="roadmap-box">
+
+                {% if history_scores %}
+
+                    {% for score in history_scores %}
+
+                    <div class="week-card">
+
+                        <h3>
+
+                            Attempt {{ loop.index }}
+
+                        </h3>
+
+                        <p>
+
+                            Resume Match Score:
+                            {{ score }}%
+
+                        </p>
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill frontend"
+
+                            style="width:
+                            {{ score }}%;">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+                                {% else %}
+
+                    <div class="week-card">
+
+                        <h3>
+
+                            No Progress History Yet
+
+                        </h3>
+
+                        <p>
+
+                            Upload more resumes and complete
+                            assessments to unlock progress
+                            analytics and score trends.
+
+                        </p>
+
+                    </div>
+
+                {% endif %}
+            </div>
+
+        </div>
+
+        <!-- TOP CARDS -->
+
+        <div class="top-cards">
+
+             <div class="card-box">
+
+                 <h3>
+
+                     Match Score
+
+                 </h3>
+
+                                    <div class="score-ring"
+                                    style="--score:{{ score }};">
+
+
+
+                      <svg width="120"
+                      height="120">
+
+                          <circle
+                          class="ring-bg"
+                          cx="60"
+                          cy="60"
+                          r="50">
+
+                          </circle>
+
+                          <circle
+                          class="ring-progress"
+                          cx="60"
+                          cy="60"
+                          r="50">
+
+                          </circle>
+
+                      </svg>
+
+                      <div class="score-text">
+
+                          <h1 id="matchCounter">
+
+                              0
+
+                          </h1>
+
+                      </div>
+
+                  </div>
+
+                 <p style="
+                 margin-top:12px;">
+
+                     {% if score >= 80 %}
+
+                         🚀 Excellent Match
+
+                     {% elif score >= 60 %}
+
+                         👍 Strong Profile
+
+                     {% elif score >= 40 %}
+
+                         📚 Improving Profile
+
+                     {% else %}
+
+                         ⚠ Needs Improvement
+
+                     {% endif %}
+
+                 </p>
+
+             </div>
+
+            <div class="card-box">
+
+                <h3>Selected Role</h3>
+
+                <h1>{{ role }}</h1>
+
+            </div>
+
+            <div class="card-box">
+
+                <h3>Skills Found</h3>
+
+                <h1 id="skillsCounter">
+
+                    0
+
+                </h1>
+
+            </div>
+
+        </div>
+
+        <!-- SKILL INSIGHTS -->
+
+        <div class="dashboard-card" id="analytics">
+
+        <h2>
+
+            Skill Insights
+
+        </h2>
+
+        <!-- TOP ANALYTICS -->
+
+        <div class="analytics-container">
+
+            <!-- OVERALL MATCH -->
+
+            <div class="analytics-item">
+
+                <div class="analytics-header">
+
+                    <span>
+
+                        Overall Match
+
+                    </span>
+
+                    <span>
+
+                        {{ score }}%
+
+                    </span>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill frontend"
+
+                    style="width:
+                    {{ score }}%;">
+
+                    </div>
+
+                </div>
+
+           </div>
+
+        <!-- MATCHED SKILLS -->
+
+        <div class="analytics-item">
+
+            <div class="analytics-header">
+
+                <span>
+
+                    Matched Skills
+
+                </span>
+
+                <span>
+
+                    {{ matched_skills|length }}
+
+                </span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div class="progress-fill communication"
+
+                style="width:
+                {{ score }}%;">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- MISSING SKILLS -->
+
+        <div class="analytics-item">
+
+            <div class="analytics-header">
+
+                <span>
+
+                    Missing Skills
+
+                </span>
+
+                <span>
+
+                    {{ missing_skills|length }}
+
+                </span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div class="progress-fill database"
+
+                style="width:
+                {{ 100 - score }}%;">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CHART -->
+
+    <div style="
+    width:100%;
+    max-width:320px;
+    height:320px;
+    margin:auto;
+    padding-top:30px;">
+
+        <canvas id="skillsChart">
+
+        </canvas>
+
+    </div>
+
+        <!-- MATCHED SKILLS -->
+
+        <div style="margin-top:40px;">
+
+            <h2>
+
+                Matched Skills
+
+            </h2>
+
+            {% if matched_skills %}
+
+                <div class="skills-container">
+
+                    {% for skill in matched_skills %}
+
+                    <span>
+
+                        {{ skill }}
+
+                    </span>
+
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <div class="week-card">
+
+                    <h3>
+
+                        No Strong Skills Detected Yet
+
+                    </h3>
+
+                    <p>
+
+                        Upload a stronger resume or
+                        improve technical keywords
+                        to increase skill matching.
+
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+        <!-- MISSING SKILLS -->
+
+        <div id="missing-skills"
+        style="margin-top:40px;">
+
+            <h2>
+
+                Missing Skills
+
+            </h2>
+
+            <!-- SKILL TAGS -->
+
+            <div class="skills-container">
+
+                {% for skill in missing_skills %}
+
+                <span class="danger">
+
+                    {{ skill }}
+
+                </span>
+
+                {% endfor %}
+
+            </div>
+
+            <!-- SKILL RECOMMENDATIONS -->
+
+            <div class="skills-grid"
+            style="margin-top:30px;">
+
+             {% if "dsa" in missing_skills
+             or "data structures" in missing_skills
+             or "algorithms" in missing_skills %}
+
+             <div class="week-card">
+
+                          <div class="skill-module-header">
+
+                                       <div class="skill-module-icon backend-module">
+
+                                                    🧠
+
+                                       </div>
+
+                                       <div>
+
+                                                    <div class="skill-module-category">
+
+                                                                 Problem Solving & Coding Interviews
+
+                                                    </div>
+
+                                                    <h3>
+
+                                                                 Data Structures & Algorithms
+
+                                                    </h3>
+
+                                       </div>
+
+                          </div>
+
+                          <div class="skill-difficulty beginner-level">
+
+                                       Intermediate to Advanced
+
+                          </div>
+
+                          <div class="skill-learning-focus">
+
+                                       <h4>
+
+                                                    Core Learning Areas
+
+                                       </h4>
+
+                                       <p>
+
+                                                    • Arrays, Strings & Hashing
+
+                                       </p>
+
+                                       <p>
+
+                                                    • Linked Lists, Stacks & Queues
+
+                                       </p>
+
+                                       <p>
+
+                                                    • Trees, Graphs & Recursion
+
+                                       </p>
+
+                                       <p>
+
+                                                    • Searching, Sorting & Dynamic Programming
+
+                                       </p>
+
+                          </div>
+
+                          <div class="skill-project">
+
+                                       <h4>
+
+                                                    Recommended Practice
+
+                                       </h4>
+
+                                       <p>
+
+                                                    Solve 100+ coding challenges
+                                                    and participate in mock technical
+                                                    interview assessments.
+
+                                       </p>
+
+                          </div>
+
+                          <div class="skill-duration">
+
+                                       ⏳ Estimated Duration: 6–8 Weeks
+
+                          </div>
+
+             </div>
+
+             {% endif %}
+
+             {% if "git" in missing_skills
+             or "github" in missing_skills %}
+
+             <div class="week-card">
+
+                          <div class="skill-module-header">
+
+                                       <div class="skill-module-icon devops-module">
+
+                                                    🔧
+
+                                       </div>
+
+                                       <div>
+
+                                                    <div class="skill-module-category">
+
+                                                                 Version Control Systems
+
+                                                    </div>
+
+                                                    <h3>
+
+                                                                 Git & GitHub
+
+                                                    </h3>
+
+                                       </div>
+
+                          </div>
+
+                          <div class="skill-difficulty beginner-level">
+
+                                       Beginner Friendly
+
+                          </div>
+
+                          <div class="skill-learning-focus">
+
+                                       <h4>
+
+                                                    Core Learning Areas
+
+                                       </h4>
+
+                                       <p>
+
+                                                    • Git Commands & Workflow
+
+                                       </p>
+
+                                       <p>
+
+                                                    • Branching & Merging
+
+                                       </p>
+
+                                       <p>
+
+                                                    • Pull Requests
+
+                                       </p>
+
+                                       <p>
+
+                                                    • GitHub Collaboration
+
+                                       </p>
+
+                          </div>
+
+                          <div class="skill-project">
+
+                                       <h4>
+
+                                                    Recommended Project
+
+                                       </h4>
+
+                                       <p>
+
+                                                    Create and manage a team
+                                                    project using branches,
+                                                    pull requests, and version control.
+
+                                       </p>
+
+                          </div>
+
+                          <div class="skill-duration">
+
+                                       ⏳ Estimated Duration: 1–2 Weeks
+
+                          </div>
+
+             </div>
+
+             {% endif %}
+             {% if "sql" in missing_skills
+             or "mysql" in missing_skills
+             or "postgresql" in missing_skills %}
+
+             <div class="week-card">
+
+                          <div class="skill-module-header">
+
+                                       <div class="skill-module-icon database-module">
+
+                                                    🗃️
+
+                                       </div>
+
+                                       <div>
+
+                                                    <div class="skill-module-category">
+
+                                                                 Database Management
+
+                                                    </div>
+
+                                                    <h3>
+
+                                                                 SQL Development
+
+                                                    </h3>
+
+                                       </div>
+
+                          </div>
+
+                          <div class="skill-difficulty beginner-level">
+
+                                       Beginner Friendly
+
+                          </div>
+
+                          <div class="skill-learning-focus">
+
+                                       <h4>
+
+                                                    Core Learning Areas
+
+                                       </h4>
+
+                                       <p>
+
+                                                    • Database Design
+
+                                       </p>
+
+                                       <p>
+
+                                                    • CRUD Operations
+
+                                       </p>
+
+                                       <p>
+
+                                                    • Joins & Relationships
+
+                                       </p>
+
+                                       <p>
+
+                                                    • Query Optimization
+
+                                       </p>
+
+                          </div>
+
+                          <div class="skill-project">
+
+                                       <h4>
+
+                                                    Recommended Project
+
+                                       </h4>
+
+                                       <p>
+
+                                                    Build a library management
+                                                    database with advanced queries,
+                                                    reports, and search functionality.
+
+                                       </p>
+
+                          </div>
+
+                          <div class="skill-duration">
+
+                                       ⏳ Estimated Duration: 3–4 Weeks
+
+                          </div>
+
+             </div>
+
+             {% endif %}
+
+             {% if "java" in missing_skills %}
+
+             <div class="week-card">
+
+                          <div class="skill-module-header">
+
+                                       <div class="skill-module-icon backend-module">
+
+                                                    ☕
+
+                                       </div>
+
+                                       <div>
+
+                                                    <div class="skill-module-category">
+
+                                                                 Enterprise Programming
+
+                                                    </div>
+
+                                                    <h3>
+
+                                                                 Java Development
+
+                                                    </h3>
+
+                                       </div>
+
+                          </div>
+
+                          <div class="skill-difficulty beginner-level">
+
+                                       Intermediate Level
+
+                          </div>
+
+                          <div class="skill-learning-focus">
+
+                                       <h4>
+
+                                                    Core Learning Areas
+
+                                       </h4>
+
+                                       <p>
+
+                                                    • Object-Oriented Programming
+
+                                       </p>
+
+                                       <p>
+
+                                                    • Classes & Inheritance
+
+                                       </p>
+
+                                       <p>
+
+                                                    • Collections Framework
+
+                                       </p>
+
+                                       <p>
+
+                                                    • Exception Handling
+
+                                       </p>
+
+                          </div>
+
+                          <div class="skill-project">
+
+                                       <h4>
+
+                                                    Recommended Project
+
+                                       </h4>
+
+                                       <p>
+
+                                                    Build a student management
+                                                    system with OOP concepts,
+                                                    search, and reporting features.
+
+                                       </p>
+
+                          </div>
+
+                          <div class="skill-duration">
+
+                                       ⏳ Estimated Duration: 4–6 Weeks
+
+                          </div>
+
+             </div>
+
+             {% endif %}
+
+            
+            {% if "python" in missing_skills %}
+
+             <div class="week-card">
+
+                          <div class="skill-module-header">
+
+                                       <div class="skill-module-icon backend-module">
+
+                                                    🐍
+
+                                       </div>
+
+                                       <div>
+
+                                                    <div class="skill-module-category">
+
+                                                                 Programming Fundamentals
+
+                                                    </div>
+
+                                                    <h3>
+
+                                                                 Python Development
+
+                                                    </h3>
+
+                                       </div>
+
+                          </div>
+
+                          <div class="skill-difficulty beginner-level">
+
+                                       Beginner Friendly
+
+                          </div>
+
+                          <div class="skill-learning-focus">
+
+                                       <h4>
+
+                                                    Core Learning Areas
+
+                                       </h4>
+
+                                       <p>
+
+                                                    • Python Syntax & Variables
+
+                                       </p>
+
+                                       <p>
+
+                                                    • Functions & Modules
+
+                                       </p>
+
+                                       <p>
+
+                                                    • Object-Oriented Programming
+
+                                       </p>
+
+                                       <p>
+
+                                                    • File Handling & Automation
+
+                                       </p>
+
+                          </div>
+
+                          <div class="skill-project">
+
+                                       <h4>
+
+                                                    Recommended Project
+
+                                       </h4>
+
+                                       <p>
+
+                                                    Build an expense tracker
+                                                    with file storage and
+                                                    reporting functionality.
+
+                                       </p>
+
+                          </div>
+
+                          <div class="skill-duration">
+
+                                       ⏳ Estimated Duration: 3–5 Weeks
+
+                          </div>
+
+             </div>
+
+             {% endif %}
+
+             {% if "css" in missing_skills %}
+
+             <div class="week-card">
+
+                          <div class="skill-module-header">
+
+                                       <div class="skill-module-icon frontend-module">
+
+                                                    🎨
+
+                                       </div>
+
+                                       <div>
+
+                                                    <div class="skill-module-category">
+
+                                                                 Frontend Styling
+
+                                                    </div>
+
+                                                    <h3>
+
+                                                                 CSS Development
+
+                                                    </h3>
+
+                                       </div>
+
+                          </div>
+
+                          <div class="skill-difficulty beginner-level">
+
+                                       Beginner Friendly
+
+                          </div>
+
+                          <div class="skill-learning-focus">
+
+                                       <h4>
+
+                                                    Core Learning Areas
+
+                                       </h4>
+
+                                       <p>
+
+                                                    • Flexbox & Grid Layouts
+
+                                       </p>
+
+                                       <p>
+
+                                                    • Responsive Design
+
+                                       </p>
+
+                                       <p>
+
+                                                    • CSS Animations
+
+                                       </p>
+
+                                       <p>
+
+                                                    • Modern UI Components
+
+                                       </p>
+
+                          </div>
+
+                          <div class="skill-project">
+
+                                       <h4>
+
+                                                    Recommended Project
+
+                                       </h4>
+
+                                       <p>
+
+                                                    Build a responsive portfolio
+                                                    website with modern layouts
+                                                    and animations.
+
+                                       </p>
+
+                          </div>
+
+                          <div class="skill-duration">
+
+                                       ⏳ Estimated Duration: 2–3 Weeks
+
+                          </div>
+
+             </div>
+
+             {% endif %}
+            
+            {% if "html" in missing_skills %}
+          
+                 <div class="week-card">
+
+                                  <div class="skill-module-header">
+
+                                                   <div class="skill-module-icon frontend-module">
+
+                                                                    🌐
+
+                                                   </div>
+
+                                                   <div>
+
+                                                                    <div class="skill-module-category">
+
+                                                                                     Frontend Foundations
+
+                                                                    </div>
+
+                                                                    <h3>
+
+                                                                                     HTML Development
+
+                                                                    </h3>
+
+                                                   </div>
+
+                                  </div>
+
+                                  <div class="skill-difficulty beginner-level">
+
+                                                   Beginner Friendly
+
+                                  </div>
+
+                                  <div class="skill-learning-focus">
+
+                                                   <h4>
+
+                                                                    Core Learning Areas
+
+                                                   </h4>
+
+                                                   <p>
+
+                                                                    • Semantic HTML5 Structure
+
+                                                   </p>
+
+                                                   <p>
+
+                                                                    • Forms & Input Validation
+
+                                                   </p>
+
+                                                   <p>
+
+                                                                    • Accessibility Standards
+
+                                                   </p>
+
+                                                   <p>
+
+                                                                    • Responsive Page Layouts
+
+                                                   </p>
+
+                                  </div>
+
+                                  <div class="skill-project">
+
+                                                   <h4>
+
+                                                                    Recommended Project
+
+                                                   </h4>
+
+                                                   <p>
+
+                                                                    Build a professional portfolio landing page
+                                                                    with responsive sections and contact forms.
+
+                                                   </p>
+
+                                  </div>
+
+                                  <div class="skill-duration">
+
+                                                   ⏳ Estimated Duration: 2–3 Weeks
+
+                                  </div>
+
+                 </div>
+
+                 {% endif %}
+                  
+                                  
+
+                  {% if "react" in missing_skills %}
+
+                  <div class="week-card">
+
+                                   <div class="skill-module-header">
+
+                                                    <div class="skill-module-icon frontend-module">
+
+                                                                     ⚛️
+
+                                                    </div>
+
+                                                    <div>
+
+                                                                     <div class="skill-module-category">
+
+                                                                                      Frontend Framework Engineering
+
+                                                                     </div>
+
+                                                                     <h3>
+
+                                                                                      React Development
+
+                                                                     </h3>
+
+                                                    </div>
+
+                                   </div>
+
+                                   <div class="skill-difficulty beginner-level">
+
+                                                    Advanced Beginner
+
+                                   </div>
+
+                                   <div class="skill-learning-focus">
+
+                                                    <h4>
+
+                                                                     Core React Concepts
+
+                                                    </h4>
+
+                                                    <p>
+
+                                                                     • Components & JSX
+
+                                                    </p>
+
+                                                    <p>
+
+                                                                     • Props & State Management
+
+                                                    </p>
+
+                                                    <p>
+
+                                                                     • React Hooks & useEffect
+
+                                                    </p>
+
+                                                    <p>
+
+                                                                     • Routing & Dynamic UI
+
+                                                    </p>
+
+                                   </div>
+
+                                   <div class="skill-project">
+
+                                                    <h4>
+
+                                                                     Recommended Project
+
+                                                    </h4>
+
+                                                    <p>
+
+                                                                     Build a responsive student dashboard
+                                                                     with authentication, charts,
+                                                                     and reusable components.
+
+                                                    </p>
+
+                                   </div>
+
+                                   <div class="skill-duration">
+
+                                                    ⏳ Estimated Duration: 4–6 Weeks
+
+                                   </div>
+
+                  </div>
+
+                  {% endif %}
+
+                  {% if "node.js" in missing_skills %}
+
+                  <div class="week-card">
+
+                                   <div class="skill-module-header">
+
+                                                    <div class="skill-module-icon backend-module">
+
+                                                                     🟢
+
+                                                    </div>
+
+                                                    <div>
+
+                                                                     <div class="skill-module-category">
+
+                                                                                      Backend Development
+
+                                                                     </div>
+
+                                                                     <h3>
+
+                                                                                      Node.js Engineering
+
+                                                                     </h3>
+
+                                                    </div>
+
+                                   </div>
+
+                                   <div class="skill-difficulty beginner-level">
+
+                                                    Intermediate Level
+
+                                   </div>
+
+                                   <div class="skill-learning-focus">
+
+                                                    <h4>
+
+                                                                     Backend Learning Areas
+
+                                                    </h4>
+
+                                                    <p>
+
+                                                                     • Express.js Framework
+
+                                                    </p>
+
+                                                    <p>
+
+                                                                     • REST API Development
+
+                                                    </p>
+
+                                                    <p>
+
+                                                                     • Authentication Systems
+
+                                                    </p>
+
+                                                    <p>
+
+                                                                     • Server & Routing Logic
+
+                                                    </p>
+
+                                   </div>
+
+                                   <div class="skill-project">
+
+                                                    <h4>
+
+                                                                     Recommended Project
+
+                                                    </h4>
+
+                                                    <p>
+
+                                                                     Create a backend API system
+                                                                     for authentication, task management,
+                                                                     and secure data handling.
+
+                                                    </p>
+
+                                   </div>
+
+                                   <div class="skill-duration">
+
+                                                    ⏳ Estimated Duration: 5–7 Weeks
+
+                                   </div>
+
+                  </div>
+
+                  {% endif %}
+
+                  {% if "mongodb" in missing_skills %}
+
+                  <div class="week-card">
+
+                                   <div class="skill-module-header">
+
+                                                    <div class="skill-module-icon database-module">
+
+                                                                     🗄️
+
+                                                    </div>
+
+                                                    <div>
+
+                                                                     <div class="skill-module-category">
+
+                                                                                      Database Engineering
+
+                                                                     </div>
+
+                                                                     <h3>
+
+                                                                                      MongoDB Development
+
+                                                                     </h3>
+
+                                                    </div>
+
+                                   </div>
+
+                                   <div class="skill-difficulty beginner-level">
+
+                                                    Beginner Friendly
+
+                                   </div>
+
+                                   <div class="skill-learning-focus">
+
+                                                    <h4>
+
+                                                                     Database Concepts
+
+                                                    </h4>
+
+                                                    <p>
+
+                                                                     • Collections & Documents
+
+                                                    </p>
+
+                                                    <p>
+
+                                                                     • CRUD Operations
+
+                                                    </p>
+
+                                                    <p>
+
+                                                                     • Schema Design
+
+                                                    </p>
+
+                                                    <p>
+
+                                                                     • Database Optimization
+
+                                                    </p>
+
+                                   </div>
+
+                                   <div class="skill-project">
+
+                                                    <h4>
+
+                                                                     Recommended Project
+
+                                                    </h4>
+
+                                                    <p>
+
+                                                                     Build a cloud-based student
+                                                                     record management database
+                                                                     with filtering and search features.
+
+                                                    </p>
+
+                                   </div>
+
+                                   <div class="skill-duration">
+
+                                                    ⏳ Estimated Duration: 2–4 Weeks
+
+                                   </div>
+
+                  </div>
+
+                  {% endif %}
+
+                  {% if "rest api" in missing_skills %}
+
+                  <div class="week-card">
+
+                                   <div class="skill-module-header">
+
+                                                    <div class="skill-module-icon api-module">
+
+                                                                     🔗
+
+                                                    </div>
+
+                                                    <div>
+
+                                                                     <div class="skill-module-category">
+
+                                                                                      API Integration Systems
+
+                                                                     </div>
+
+                                                                     <h3>
+
+                                                                                      REST API Development
+
+                                                                     </h3>
+
+                                                    </div>
+
+                                   </div>
+
+                                   <div class="skill-difficulty beginner-level">
+
+                                                    Intermediate Level
+
+                                   </div>
+
+                                   <div class="skill-learning-focus">
+
+                                                    <h4>
+
+                                                                     API Development Skills
+
+                                                    </h4>
+
+                                                    <p>
+
+                                                                     • REST Architecture
+
+                                                    </p>
+
+                                                    <p>
+
+                                                                     • API Authentication
+
+                                                    </p>
+
+                                                    <p>
+
+                                                                     • JSON Data Handling
+
+                                                    </p>
+
+                                                    <p>
+
+                                                                     • Third-Party API Integration
+
+                                                    </p>
+
+                                   </div>
+
+                                   <div class="skill-project">
+
+                                                    <h4>
+
+                                                                     Recommended Project
+
+                                                    </h4>
+
+                                                    <p>
+
+                                                                     Develop a weather analytics dashboard
+                                                                     using multiple external APIs
+                                                                     and dynamic frontend updates.
+
+                                                    </p>
+
+                                   </div>
+
+                                   <div class="skill-duration">
+
+                                                    ⏳ Estimated Duration: 3–5 Weeks
+
+                                   </div>
+
+                  </div>
+
+                  {% endif %}
+
+                  {% if "deployement" in missing_skills or "AWS" in missing_skills %}
+
+                  <div class="week-card">
+
+                                   <div class="skill-module-header">
+
+                                                    <div class="skill-module-icon devops-module">
+
+                                                                     ☁️
+
+                                                    </div>
+
+                                                    <div>
+
+                                                                     <div class="skill-module-category">
+
+                                                                                      Cloud & DevOps Engineering
+
+                                                                     </div>
+
+                                                                     <h3>
+
+                                                                                      Docker & AWS Fundamentals
+
+                                                                     </h3>
+
+                                                    </div>
+
+                                   </div>
+
+                                   <div class="skill-difficulty beginner-level">
+
+                                                    Advanced Level
+
+                                   </div>
+
+                                   <div class="skill-learning-focus">
+
+                                                    <h4>
+
+                                                                     Infrastructure Learning Areas
+
+                                                    </h4>
+
+                                                    <p>
+
+                                                                     • Docker Containerization
+
+                                                    </p>
+
+                                                    <p>
+
+                                                                     • AWS Cloud Basics
+
+                                                    </p>
+
+                                                    <p>
+
+                                                                     • Deployment Pipelines
+
+                                                    </p>
+
+                                                    <p>
+
+                                                                     • CI/CD Fundamentals
+
+                                                    </p>
+
+                                   </div>
+
+                                   <div class="skill-project">
+
+                                                    <h4>
+
+                                                                     Recommended Project
+
+                                                    </h4>
+
+                                                    <p>
+
+                                                                     Deploy a full-stack application
+                                                                     using Docker containers
+                                                                     and cloud hosting platforms.
+
+                                                    </p>
+
+                                   </div>
+
+                                   <div class="skill-duration">
+
+                                                    ⏳ Estimated Duration: 6–8 Weeks
+
+                                   </div>
+
+                  </div>
+                  {% endif %}
+
+             {% if not missing_skills %}
+
+             <div class="week-card">
+
+                          <div class="skill-module-header">
+
+                                       <div class="skill-module-icon frontend-module">
+
+                                                    🎯
+
+                                       </div>
+
+                                       <div>
+
+                                                    <div class="skill-module-category">
+
+                                                                 Skill Assessment Complete
+
+                                                    </div>
+
+                                                    <h3>
+
+                                                                 No Critical Skill Gaps Found
+
+                                                    </h3>
+
+                                       </div>
+
+                          </div>
+
+                          <div class="skill-learning-focus">
+
+                                       <h4>
+
+                                                    Assessment Summary
+
+                                       </h4>
+
+                                       <p>
+
+                                                    Your profile demonstrates strong
+                                                    alignment with the selected role's
+                                                    technical and professional requirements.
+
+                                       </p>
+
+                                       <p>
+
+                                                    Continue strengthening existing skills,
+                                                    building real-world projects, and preparing
+                                                    for technical interviews.
+
+                                       </p>
+
+                          </div>
+
+                          <div class="skill-project">
+
+                                       <h4>
+
+                                                    Recommended Next Steps
+
+                                       </h4>
+
+                                       <p>
+
+                                                    • Build advanced portfolio projects
+
+                                       </p>
+
+                                       <p>
+
+                                                    • Participate in coding challenges
+
+                                       </p>
+
+                                       <p>
+
+                                                    • Prepare for mock interviews
+
+                                       </p>
+
+                                       <p>
+
+                                                    • Contribute to open-source projects
+
+                                       </p>
+
+                          </div>
+
+                          <div class="skill-duration">
+
+                                       ✅ Profile Ready for Advanced Preparation
+
+                          </div>
+
+             </div>
+
+             {% endif %}
+
+             </div>
+
+        <!-- LEARNING ROADMAP -->
+
+        <div class="dashboard-card"
+        id="roadmap">
+
+            <h2>
+
+                Learning Roadmap
+
+            </h2>
+
+            <div class="roadmap-flow">
+
+                {% for item in roadmap %}
+
+                 <div class="roadmap-card">
+
+                                  <div class="step-badge">
+
+                                                   Step {{ loop.index }}
+
+                                  </div>
+
+                                  <h3>
+
+                                                   {% if "html" in item|lower %}
+
+                                                                HTML Fundamentals
+
+                                                   {% elif "css" in item|lower %}
+
+                                                                CSS Styling & Layouts
+
+                                                   {% elif "javascript" in item|lower %}
+
+                                                                JavaScript Essentials
+
+                                                   {% elif "react" in item|lower %}
+
+                                                                React Development
+
+                                                   {% elif "node" in item|lower %}
+
+                                                                Backend Engineering
+
+                                                   {% elif "express" in item|lower %}
+
+                                                                Express.js Development
+
+                                                   {% elif "mongodb" in item|lower %}
+
+                                                                MongoDB Development
+
+                                                   {% elif "sql" in item|lower %}
+
+                                                                Database Management
+
+                                                   {% elif "python" in item|lower %}
+
+                                                                Python Programming
+
+                                                   {% elif "java" in item|lower %}
+
+                                                                Java Development
+
+                                                   {% elif "git" in item|lower %}
+
+                                                                Version Control Systems
+
+                                                   {% elif "github" in item|lower %}
+
+                                                                GitHub Collaboration
+
+                                                   {% elif "docker" in item|lower
+                                                   or "aws" in item|lower %}
+
+                                                                Cloud & DevOps
+
+                                                   {% elif "deployment" in item|lower %}
+
+                                                                Application Deployment
+
+                                                   {% elif "api" in item|lower %}
+
+                                                                API Development
+
+                                                   {% elif "authentication" in item|lower %}
+
+                                                                Authentication & Security
+
+                                                   {% elif "jwt" in item|lower %}
+
+                                                                JWT Authentication
+
+                                                   {% elif "json" in item|lower %}
+
+                                                                Data Exchange & JSON
+
+                                                   {% elif "communication" in item|lower %}
+
+                                                                Professional Communication
+
+                                                   {% elif "dsa" in item|lower
+                                                   or "algorithm" in item|lower
+                                                   or "data structure" in item|lower %}
+
+                                                                Data Structures & Algorithms
+
+                                                   {% else %}
+
+                                                                Learning Milestone
+
+                                                   {% endif %}
+
+                                  </h3>
+
+                                  <p>
+
+                                                   {{ item }}
+
+                                  </p>
+
+                 </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        <!-- RESUME FEEDBACK -->
+
+        <div class="dashboard-card"
+        id="resume-feedback">
+
+            <h2>
+
+                Professional Resume Feedback
+
+            </h2>
+
+            <div class="roadmap-box">
+
+                {% for feedback in resume_feedback %}
+
+                <div class="week-card">
+
+                    <h3>
+
+                        {{ feedback.title }}
+
+                    </h3>
+
+                    <p>
+
+                        {{ feedback.message }}
+
+                    </p>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        <!-- PROFESSIONAL READINESS -->
+
+        <div class="dashboard-card"
+        id="professional-readiness">
+
+            <h2>
+
+                Professional Readiness Training
+
+            </h2>
+
+            <div class="readiness-banner">
+
+                          <div class="readiness-overlay">
+
+                                       <div class="readiness-content">
+
+                                                    <span class="readiness-tag">
+
+                                                                 Career Development Hub
+
+                                                    </span>
+
+                                                    <h3>
+
+                                                                 Master Real-World Professional Skills
+
+                                                    </h3>
+
+                                                    <p>
+
+                                                                 Build communication confidence,
+                                                                 interview presence, leadership mindset,
+                                                                 workplace professionalism, and corporate
+                                                                 readiness through structured training.
+
+                                                    </p>
+
+                                       </div>
+
+                          </div>
+
+             </div>
+
+            <div class="roadmap-box">
+
+                 <div class="week-card readiness-card">
+
+                      <img
+                      src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
+                      class="readiness-image">
+
+                                  <div class="readiness-card-top">
+
+                                                   <div class="readiness-icon">
+
+                                                                    🎤
+
+                                                   </div>
+
+                                                   <div>
+
+                                                                    <div class="readiness-level">
+
+                                                                                     Beginner → Advanced
+
+                                                                    </div>
+
+                                                                    <h3>
+
+                                                                                     Communication Skills
+
+                                                                    </h3>
+
+                                                   </div>
+
+                                  </div>
+
+                                  <div class="training-duration">
+
+                                                   ⏳ 2 Week Training Program
+
+                                  </div>
+
+                                         <div class="training-section">
+
+                                          <h4>
+
+                                                               Module Overview
+
+                                          </h4>
+
+                                          <p>
+
+                                                               Develop strong professional communication
+                                                               skills required for interviews, presentations,
+                                                               meetings, and workplace collaboration.
+                                                               Learn how to express ideas clearly,
+                                                               confidently, and professionally in
+                                                               high-pressure situations.
+
+                                          </p>
+
+                     </div>
+
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Daily Practice Exercises
+
+                                          </h4>
+
+                                          <p>
+
+                                                               ✔ Practice introducing yourself in under 60 seconds.
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Record mock interview answers and review clarity.
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Improve vocabulary using professional phrases.
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Practice explaining technical concepts simply.
+
+                                          </p>
+
+                     </div>
+
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Real Interview Scenarios
+
+                                          </h4>
+
+                                          <p>
+
+                                                               • “Tell me about yourself.”
+
+                                          </p>
+
+                                          <p>
+
+                                                               • “Describe a difficult project you handled.”
+
+                                          </p>
+
+                                          <p>
+
+                                                               • “Explain a technical concept to a non-technical person.”
+
+                                          </p>
+
+                     </div>
+
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Expected Learning Outcomes
+
+                                          </h4>
+
+                                          <p>
+
+                                                               ✔ Improved speaking confidence
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Better interview communication
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Stronger professional vocabulary
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Clear structured responses
+
+                                          </p>
+
+                     </div>
+
+                </div>
+
+                 <div class="week-card readiness-card">
+
+
+                      <img
+                      src="https://images.unsplash.com/photo-1552664730-d307ca884978"
+                      class="readiness-image">
+                                  <div class="readiness-card-top">
+
+                                                   <div class="readiness-icon">
+
+                                                                    ⭐
+
+                                                   </div>
+
+                                                   <div>
+
+                                                                    <div class="readiness-level">
+
+                                                                                     Interview Mastery
+
+                                                                    </div>
+
+                                                                    <h3>
+
+                                                                                     STAR Method Training
+
+                                                                    </h3>
+
+                                                   </div>
+
+                                  </div>
+
+                                  <div class="training-duration">
+
+                                                   ⏳ 1 Week Practical Sessions
+
+                                  </div>
+
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Module Overview
+
+                                          </h4>
+
+                                          <p>
+
+                                                               Learn how to answer behavioral interview
+                                                               questions using the STAR framework:
+                                                               Situation, Task, Action, and Result.
+                                                               Build structured, impactful, and
+                                                               professional interview responses.
+
+                                          </p>
+
+                     </div>
+
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Practical Exercises
+
+                                          </h4>
+
+                                          <p>
+
+                                                               ✔ Write STAR answers for past academic projects.
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Practice leadership and teamwork scenarios.
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Record mock behavioral interview responses.
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Focus on measurable results and outcomes.
+
+                                          </p>
+
+                     </div>
+
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Common Interview Questions
+
+                                          </h4>
+
+                                          <p>
+
+                                                               • “Tell me about a challenge you solved.”
+
+                                          </p>
+
+                                          <p>
+
+                                                               • “Describe a situation where you led a team.”
+
+                                          </p>
+
+                                          <p>
+
+                                                               • “Explain a difficult decision you made.”
+
+                                          </p>
+
+                     </div>
+
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Expected Learning Outcomes
+
+                                          </h4>
+
+                                          <p>
+
+                                                               ✔ Structured interview storytelling
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Stronger confidence in HR rounds
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Better leadership communication
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Professional answer organization
+
+                                          </p>
+
+                     </div>
+
+                </div>
+
+                 <div class="week-card readiness-card">
+
+
+                      <img
+                      src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+                      class="readiness-image">
+                                  <div class="readiness-card-top">
+
+                                                   <div class="readiness-icon">
+
+                                                                    🧍
+
+                                                   </div>
+
+                                                   <div>
+
+                                                                    <div class="readiness-level">
+
+                                                                                     Presence & Confidence
+
+                                                                    </div>
+
+                                                                    <h3>
+
+                                                                                     Body Language Guidance
+
+                                                                    </h3>
+
+                                                   </div>
+
+                                  </div>
+
+                                  <div class="training-duration">
+
+                                                   ⏳ Daily Practice Routine
+
+                                  </div>
+
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Module Overview
+
+                                          </h4>
+
+                                          <p>
+
+                                                               Learn how to use confident posture,
+                                                               eye contact, facial expressions,
+                                                               and professional gestures to create
+                                                               a strong first impression during
+                                                               interviews, meetings, and presentations.
+
+                                          </p>
+
+                     </div>
+
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Practical Training Activities
+
+                                          </h4>
+
+                                          <p>
+
+                                                               ✔ Practice maintaining eye contact while speaking.
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Improve sitting posture during mock interviews.
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Avoid nervous hand movements and distractions.
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Train confident walking and greeting techniques.
+
+                                          </p>
+
+                     </div>
+
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Real Workplace Situations
+
+                                          </h4>
+
+                                          <p>
+
+                                                               • Greeting recruiters during interviews.
+
+                                          </p>
+
+                                          <p>
+
+                                                               • Presenting confidently in team meetings.
+
+                                          </p>
+
+                                          <p>
+
+                                                               • Handling stressful conversations professionally.
+
+                                          </p>
+
+                     </div>
+
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Expected Learning Outcomes
+
+                                          </h4>
+
+                                          <p>
+
+                                                               ✔ Improved confidence and presence
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Better non-verbal communication
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Stronger professional appearance
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ More impactful interview interactions
+
+                                          </p>
+
+                     </div>
+
+                </div>
+
+                 <div class="week-card readiness-card">
+
+
+                      <img
+                      src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+                      class="readiness-image">
+                                  <div class="readiness-card-top">
+
+                                                   <div class="readiness-icon">
+
+                                                                    💼
+
+                                                   </div>
+
+                                                   <div>
+
+                                                                    <div class="readiness-level">
+
+                                                                                     Workplace Excellence
+
+                                                                    </div>
+
+                                                                    <h3>
+
+                                                                                     Professional Etiquette
+
+                                                                    </h3>
+
+                                                   </div>
+
+                                  </div>
+
+                                  <div class="training-duration">
+
+                                                   ⏳ Corporate Readiness Program
+
+                                  </div>
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Module Overview
+
+                                          </h4>
+
+                                          <p>
+
+                                                               Build professional workplace behavior,
+                                                               communication ethics, corporate discipline,
+                                                               and respectful collaboration skills required
+                                                               for internships, corporate environments,
+                                                               and professional networking.
+
+                                          </p>
+
+                     </div>
+
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Workplace Practice Activities
+
+                                          </h4>
+
+                                          <p>
+
+                                                               ✔ Practice professional email communication.
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Improve meeting etiquette and active listening.
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Learn respectful workplace interaction techniques.
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Maintain punctuality and task discipline habits.
+
+                                          </p>
+
+                     </div>
+
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Real Corporate Scenarios
+
+                                          </h4>
+
+                                          <p>
+
+                                                               • Participating professionally in office meetings.
+
+                                          </p>
+
+                                          <p>
+
+                                                               • Communicating effectively with managers and teammates.
+
+                                          </p>
+
+                                          <p>
+
+                                                               • Handling disagreements respectfully in teams.
+
+                                          </p>
+
+                     </div>
+
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Expected Learning Outcomes
+
+                                          </h4>
+
+                                          <p>
+
+                                                               ✔ Strong workplace professionalism
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Better corporate communication habits
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Improved teamwork and collaboration
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Higher professional credibility
+
+                                          </p>
+
+                     </div>
+                </div>
+
+                 <div class="week-card readiness-card">
+
+
+                      <img
+                      src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
+                      class="readiness-image">
+                                  <div class="readiness-card-top">
+
+                                                   <div class="readiness-icon">
+
+                                                                    🚀
+
+                                                   </div>
+
+                                                   <div>
+
+                                                                    <div class="readiness-level">
+
+                                                                                     Mindset Development
+
+                                                                    </div>
+
+                                                                    <h3>
+
+                                                                                     Confidence Building
+
+                                                                    </h3>
+
+                                                   </div>
+
+                                  </div>
+
+                                  <div class="training-duration">
+
+                                                   ⏳ Confidence Growth Challenge
+
+                                  </div>
+
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Module Overview
+
+                                          </h4>
+
+                                          <p>
+
+                                                               Develop self-confidence, mental resilience,
+                                                               positive communication habits, and professional
+                                                               presence required to perform confidently during
+                                                               interviews, presentations, networking events,
+                                                               and workplace interactions.
+
+                                          </p>
+
+                     </div>
+
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Daily Confidence Exercises
+
+                                          </h4>
+
+                                          <p>
+
+                                                               ✔ Practice speaking confidently in front of a mirror.
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Record and review mock interview sessions.
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Improve posture, voice clarity, and eye contact.
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Develop positive self-introduction habits.
+
+                                          </p>
+
+                     </div>
+
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Real Professional Situations
+
+                                          </h4>
+
+                                          <p>
+
+                                                               • Introducing yourself during networking events.
+
+                                          </p>
+
+                                          <p>
+
+                                                               • Answering unexpected interview questions calmly.
+
+                                          </p>
+
+                                          <p>
+
+                                                               • Presenting project ideas confidently to teams.
+
+                                          </p>
+
+                     </div>
+
+                     <div class="training-section">
+
+                                          <h4>
+
+                                                               Expected Learning Outcomes
+
+                                          </h4>
+
+                                          <p>
+
+                                                               ✔ Improved interview confidence
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Stronger public speaking ability
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ Better emotional control under pressure
+
+                                          </p>
+
+                                          <p>
+
+                                                               ✔ More professional personal presence
+
+                                          </p>
+
+                     </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- WEAK AREA RETRAINING -->
+
+        <div class="dashboard-card"
+        id="weak-area-training">
+
+            <h2>
+
+                Adaptive Weak Area Retraining
+
+            </h2>
+
+            <div class="roadmap-box">
+
+                {% for training in weak_training_data %}
+
+                <div class="week-card">
+
+                    <h3>
+
+                        {{ training.skill }}
+
+                        Improvement Plan
+
+                    </h3>
+
+                    <h4>
+
+                        Practice Tasks
+
+                    </h4>
+
+                    {% for task in training.practice_tasks %}
+
+                    <p>
+
+                        ✔ {{ task }}
+
+                    </p>
+
+                    {% endfor %}
+
+                    <h4>
+
+                        Improvement Tips
+
+                    </h4>
+
+                    {% for tip in training.improvement_tips %}
+
+                    <p>
+
+                        ⭐ {{ tip }}
+
+                    </p>
+
+                    {% endfor %}
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        <!-- INTERVIEW -->
+
+        <div class="dashboard-card">
+
+            <h2>Top Company Interview Questions</h2>
+
+            <a href="/interview">
+
+                <button class="interview-btn">
+
+                    Start Mock Interview
+
+                </button>
+
+            </a>
+
+            <div class="question-box">
+
+                {% for q in questions %}
+
+                <p>
+
+                    ✔ {{ q.question }}
+
+                </p>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        <!-- ASSESSMENT -->
+
+        <div class="dashboard-card">
+
+            <h2>Skill Assessment</h2>
+
+            <a href="/assessment">
+
+                <button class="interview-btn">
+
+                    Start Assessment
+
+                </button>
+
+            </a>
+
+        </div>
+
+        <!-- LEARNING RESOURCES -->
+
+        <div class="dashboard-card"
+        id="resources">
+
+            <h2>Learning Resources</h2>
+
+            <div class="roadmap-box">
+
+                                {% if resources %}
+
+                    {% for resource in resources %}
+
+                    <div class="week-card">
+
+                        <h3>
+
+                            {{ resource.course }}
+
+                        </h3>
+
+                        <div class="step-badge">
+
+                            {{ resource.platform }}
+
+                        </div>
+
+                        <a href="{{ resource.link }}"
+                        target="_blank">
+
+                            <button
+                            class="interview-btn">
+
+                                Start Learning
+
+                            </button>
+
+                        </a>
+
+                    </div>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <div class="week-card">
+
+                        <h3>
+
+                            No Learning Resources Available
+
+                        </h3>
+
+                        <p>
+
+                            Resources will appear based on
+                            your missing skills and career
+                            recommendations.
+
+                        </p>
+
+                    </div>
+
+                {% endif %}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+         <!-- FOOTER -->
+
+         <div class="dashboard-footer">
+
+                  <h3>
+
+                           SkillPilot 🚀
+
+                  </h3>
+
+                  <p>
+
+                           Smart Resume Intelligence &
+                           Career Growth Platform
+
+                  </p>
+
+                  <p>
+
+                           Built for students,
+                           developers, and future professionals.
+
+                  </p>
+
+         </div>
+         <!-- BACK TO TOP -->
+
+         <button
+         class="back-to-top"
+         id="backToTop">
+
+                  ↑
+
+         </button>
+<script>
+
+const skillsChart = document.getElementById(
+'skillsChart'
+);
+
+new Chart(skillsChart, {
+
+    type: 'doughnut',
+
+    data: {
+
+        labels: [
+
+            'Matched Skills',
+
+            'Missing Skills'
+
+        ],
+
+        datasets: [{
+
+            data: [
+
+                {{ matched_skills|length }},
+
+                {{ missing_skills|length }}
+
+            ],
+
+            backgroundColor: [
+
+                '#3b82f6',
+
+                '#ef4444'
+
+            ],
+
+            borderWidth: 2,
+
+            borderColor: '#111827'
+
+        }]
+
+    },
+
+    options: {
+
+        responsive: true,
+
+        plugins: {
+
+            legend: {
+
+                labels: {
+
+                    color: 'white',
+
+                    font: {
+
+                        size: 16
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        animation: {
+
+            animateRotate: true,
+
+            duration: 2000
+
+        }
+
+    }
+
+});
+/* =========================
+PROGRESS LINE CHART
+========================= */
+
+const progressChart =
+document.getElementById(
+'progressChart'
+);
+
+new Chart(progressChart, {
+
+    type:'line',
+
+    data:{
+
+        labels:[
+
+            {% for score in history_scores %}
+
+                'Attempt {{ loop.index }}',
+
+            {% endfor %}
+
+        ],
+
+        datasets:[{
+
+            label:'Resume Match Score',
+
+            data:[
+
+                {% for score in history_scores %}
+
+                    {{ score }},
+
+                {% endfor %}
+
+            ],
+
+            borderColor:'#00c6ff',
+
+            backgroundColor:
+            'rgba(0,198,255,0.12)',
+
+            tension:0.4,
+
+            fill:true,
+
+            pointBackgroundColor:
+            '#ffffff',
+
+            pointBorderColor:
+            '#00c6ff',
+
+            pointRadius:6,
+
+            pointHoverRadius:8,
+
+            borderWidth:4
+
+        }]
+
+    },
+
+    options:{
+
+        responsive:true,
+
+        plugins:{
+
+            legend:{
+
+                labels:{
+
+                    color:'white',
+
+                    font:{
+
+                        size:16
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        scales:{
+
+            x:{
+
+                ticks:{
+
+                    color:'white'
+                },
+
+                grid:{
+
+                    color:
+                    'rgba(255,255,255,0.05)'
+                }
+
+            },
+
+            y:{
+
+                ticks:{
+
+                    color:'white'
+                },
+
+                grid:{
+
+                    color:
+                    'rgba(255,255,255,0.05)'
+                },
+
+                beginAtZero:true,
+
+                max:100
+
+            }
+
+        },
+
+        animation:{
+
+            duration:2000
+        }
+
+    }
+
+});
+/* =========================
+ANIMATED COUNTERS
+========================= */
+
+function animateCounter(
+    id,
+    target,
+    suffix=""
+){
+
+    let count = 0;
+
+    const speed = 20;
+
+    const element =
+    document.getElementById(id);
+
+    const increment =
+    Math.ceil(target / 50);
+
+    const updateCounter = () => {
+
+        count += increment;
+
+        if(count >= target){
+
+            count = target;
+        }
+
+        element.innerHTML =
+        count + suffix;
+
+        if(count < target){
+
+            setTimeout(
+                updateCounter,
+                speed
+            );
+        }
+    };
+
+    updateCounter();
+}
+
+/* =========================
+RUN COUNTERS
+========================= */
+
+animateCounter(
+    'matchCounter',
+    {{ score }},
+    '%'
+);
+
+animateCounter(
+    'skillsCounter',
+    {{ matched_skills|length }}
+);
+/* =========================
+RING ANIMATION
+========================= */
+
+const ring =
+document.querySelector(
+'.ring-progress'
+);
+
+const radius = 50;
+
+const circumference =
+2 * Math.PI * radius;
+
+ring.style.strokeDasharray =
+circumference;
+
+ring.style.strokeDashoffset =
+circumference;
+
+const offset =
+circumference -
+({{ score }} / 100)
+* circumference;
+
+setTimeout(() => {
+
+    ring.style.transition =
+    'stroke-dashoffset 2s ease';
+
+    ring.style.strokeDashoffset =
+    offset;
+
+}, 300);
+/* =========================
+ACTIVE SIDEBAR
+========================= */
+
+const sidebarItems =
+document.querySelectorAll(
+'.sidebar ul li'
+);
+
+sidebarItems.forEach(item => {
+
+    item.addEventListener(
+        'click',
+        function(){
+
+            sidebarItems.forEach(li => {
+
+                li.classList.remove(
+                    'active'
+                );
+
+            });
+
+            this.classList.add(
+                'active'
+            );
+        }
+    );
+
+});
+/* =========================
+CURSOR GLOW EFFECT
+========================= */
+
+const glow =
+document.querySelector(
+'.cursor-glow'
+);
+
+document.addEventListener(
+'mousemove',
+e => {
+
+    glow.style.left =
+    e.clientX + 'px';
+
+    glow.style.top =
+    e.clientY + 'px';
+
+});
+/* =========================
+BACK TO TOP
+========================= */
+
+const backToTop =
+document.getElementById(
+'backToTop'
+);
+
+backToTop.addEventListener(
+'click',
+() => {
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:'smooth'
+    });
+
+});
+/* =========================
+CARD TILT EFFECT
+========================= */
+
+const cards =
+document.querySelectorAll(
+'.dashboard-card'
+);
+
+cards.forEach(card => {
+
+    card.addEventListener(
+        'mousemove',
+        e => {
+
+            const rect =
+            card.getBoundingClientRect();
+
+            const x =
+            e.clientX - rect.left;
+
+            const y =
+            e.clientY - rect.top;
+
+            const centerX =
+            rect.width / 2;
+
+            const centerY =
+            rect.height / 2;
+
+            const rotateX =
+            ((y - centerY) / 25);
+
+            const rotateY =
+            ((centerX - x) / 25);
+
+            card.style.transform =
+            `
+            perspective(1000px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+            translateY(-6px)
+            `;
+        }
+    );
+
+    card.addEventListener(
+        'mouseleave',
+        () => {
+
+            card.style.transform =
+            `
+            perspective(1000px)
+            rotateX(0deg)
+            rotateY(0deg)
+            translateY(0px)
+            `;
+        }
+    );
+
+});
+/* =========================
+DYNAMIC GREETING
+========================= */
+
+const greeting =
+document.getElementById(
+'greetingText'
+);
+
+const currentHour =
+new Date().getHours();
+
+if(currentHour < 12){
+
+    greeting.innerHTML =
+    'Good Morning';
+
+}
+
+else if(currentHour < 18){
+
+    greeting.innerHTML =
+    'Good Afternoon';
+
+}
+
+else{
+
+    greeting.innerHTML =
+    'Good Evening';
+
+}
+/* =========================
+LOADER
+========================= */
+
+window.addEventListener(
+'load',
+() => {
+
+    const loader =
+    document.getElementById(
+        'loaderWrapper'
+    );
+
+    setTimeout(() => {
+
+        loader.style.opacity =
+        '0';
+
+        loader.style.visibility =
+        'hidden';
+
+    }, 1200);
+
+});
+/* =========================
+TOAST NOTIFICATION
+========================= */
+
+const toast =
+document.getElementById(
+'toastNotification'
+);
+
+window.addEventListener(
+'load',
+() => {
+
+    setTimeout(() => {
+
+        toast.style.transform =
+        'translateX(0)';
+
+        toast.style.opacity =
+        '1';
+
+    }, 1400);
+
+    setTimeout(() => {
+
+        toast.style.transform =
+        'translateX(120%)';
+
+        toast.style.opacity =
+        '0';
+
+    }, 4500);
+
+});
+/* =========================
+MOBILE MENU
+========================= */
+
+const menuToggle =
+document.getElementById(
+'menuToggle'
+);
+
+const sidebar =
+document.querySelector(
+'.sidebar'
+);
+
+menuToggle.addEventListener(
+'click',
+() => {
+
+    sidebar.classList.toggle(
+        'active'
+    );
+
+});
+/* =========================
+SCROLL ACTIVE SIDEBAR
+========================= */
+
+const sections =
+document.querySelectorAll(
+'.dashboard-card'
+);
+
+const navLinks =
+document.querySelectorAll(
+'.sidebar ul a'
+);
+
+window.addEventListener(
+'scroll',
+() => {
+
+    let current = '';
+
+    sections.forEach(section => {
+
+        const sectionTop =
+        section.offsetTop;
+
+        if(pageYOffset >=
+        sectionTop - 200){
+
+            current =
+            section.getAttribute(
+                'id'
+            );
+        }
+
+    });
+
+    navLinks.forEach(link => {
+
+        const li =
+        link.querySelector('li');
+
+        li.classList.remove(
+            'active'
+        );
+
+        if(
+        link.getAttribute('href')
+        === `#${current}`
+        ){
+
+            li.classList.add(
+                'active'
+            );
+        }
+
+    });
+
+});
+/* =========================
+BUTTON RIPPLE EFFECT
+========================= */
+
+const buttons =
+document.querySelectorAll(
+'.interview-btn'
+);
+
+buttons.forEach(button => {
+
+    button.addEventListener(
+        'click',
+        function(e){
+
+            const ripple =
+            document.createElement(
+                'span'
+            );
+
+            const rect =
+            button.getBoundingClientRect();
+
+            const size =
+            Math.max(
+                rect.width,
+                rect.height
+            );
+
+            ripple.style.width =
+            size + 'px';
+
+            ripple.style.height =
+            size + 'px';
+
+            ripple.style.left =
+            e.clientX -
+            rect.left -
+            size / 2 + 'px';
+
+            ripple.style.top =
+            e.clientY -
+            rect.top -
+            size / 2 + 'px';
+
+            button.appendChild(
+                ripple
+            );
+
+            setTimeout(() => {
+
+                ripple.remove();
+
+            }, 600);
+
+        }
+    );
+
+});
+</script>
+</body>
+
+</html>

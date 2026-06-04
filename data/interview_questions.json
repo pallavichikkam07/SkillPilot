@@ -1,0 +1,1136 @@
+{
+  "Frontend Developer": [
+
+    {
+      "question": "Explain React Hooks.",
+
+      "skills": [
+        "React",
+        "Hooks",
+        "JavaScript"
+      ],
+
+      "difficulty": "Medium",
+
+      "category": "React",
+
+      "marks": 15,
+
+      "keywords": [
+        "usestate",
+        "useeffect",
+        "hooks",
+        "state",
+        "functional"
+      ],
+
+      "feedback":
+      "Practice useState and useEffect concepts.",
+
+      "modelAnswer":
+      "React Hooks allow functional components to use state and lifecycle features."
+    },
+
+    {
+      "question": "What is DOM?",
+
+      "skills": [
+        "DOM",
+        "JavaScript",
+        "HTML"
+      ],
+
+      "difficulty": "Easy",
+
+      "category": "JavaScript",
+
+      "marks": 10,
+
+      "keywords": [
+        "document",
+        "object",
+        "html",
+        "tree",
+        "elements"
+      ],
+
+      "feedback":
+      "Learn DOM manipulation concepts properly.",
+
+      "modelAnswer":
+      "DOM stands for Document Object Model and represents HTML elements as objects."
+    }
+
+  ],
+
+  "Backend Developer": [
+
+    {
+      "question": "What is REST API?",
+
+      "skills": [
+        "REST API",
+        "HTTP",
+        "Backend"
+      ],
+
+      "difficulty": "Medium",
+
+      "category": "API",
+
+      "marks": 15,
+
+      "keywords": [
+        "http",
+        "client",
+        "server",
+        "request",
+        "response",
+        "api"
+      ],
+
+      "feedback":
+      "Improve API communication concepts.",
+
+      "modelAnswer":
+      "REST API is an architectural style for communication between client and server using HTTP methods."
+    },
+
+    {
+      "question": "Explain Flask.",
+
+      "skills": [
+        "Python",
+        "Flask",
+        "Backend"
+      ],
+
+      "difficulty": "Easy",
+
+      "category": "Python",
+
+      "marks": 10,
+
+      "keywords": [
+        "python",
+        "framework",
+        "web",
+        "backend",
+        "routing"
+      ],
+
+      "feedback":
+      "Practice Flask routing and backend concepts.",
+
+      "modelAnswer":
+      "Flask is a lightweight Python web framework used for backend development."
+    }
+
+  ],
+
+  "Data Analyst": [
+
+    {
+      "question": "Explain SQL joins.",
+
+      "skills": [
+        "SQL",
+        "Database",
+        "Joins"
+      ],
+
+      "difficulty": "Hard",
+
+      "category": "Database",
+
+      "marks": 20,
+
+      "keywords": [
+        "inner join",
+        "left join",
+        "right join",
+        "full join",
+        "table",
+        "relationship",
+        "database",
+        "columns"
+      ],
+
+      "feedback":
+      "Improve understanding of SQL joins and table relationships.",
+
+      "modelAnswer":
+      "SQL joins combine rows from multiple tables using related columns."
+    },
+
+    {
+      "question": "What is ETL?",
+
+      "skills": [
+        "ETL",
+        "Data Engineering",
+        "Pipeline"
+      ],
+
+      "difficulty": "Medium",
+
+      "category": "Data Engineering",
+
+      "marks": 15,
+
+      "keywords": [
+        "extract",
+        "transform",
+        "load",
+        "pipeline",
+        "warehouse",
+        "data"
+      ],
+
+      "feedback":
+      "Learn ETL workflow and data pipelines properly.",
+
+      "modelAnswer":
+      "ETL stands for Extract Transform and Load."
+    }
+
+  ],
+
+  "Full Stack Developer": [
+
+    {
+      "question":
+      "Explain the difference between client-side rendering and server-side rendering.",
+
+      "skills": [
+        "React",
+        "Frontend",
+        "Rendering"
+      ],
+
+      "difficulty": "Easy",
+
+      "category": "Frontend",
+
+      "marks": 10,
+
+      "keywords": [
+        "client",
+        "server",
+        "rendering",
+        "browser",
+        "html"
+      ],
+
+      "feedback":
+      "Improve understanding of rendering architecture in frontend systems.",
+
+      "modelAnswer":
+      "Client-side rendering renders pages in the browser using JavaScript, while server-side rendering generates HTML on the server before sending it to the browser."
+    },
+
+    {
+      "question":
+      "How does React Virtual DOM improve performance?",
+
+      "skills": [
+        "React",
+        "Virtual DOM",
+        "Frontend"
+      ],
+
+      "difficulty": "Medium",
+
+      "category": "React",
+
+      "marks": 15,
+
+      "keywords": [
+        "virtual dom",
+        "dom",
+        "performance",
+        "diffing",
+        "render"
+      ],
+
+      "feedback":
+      "Practice React rendering lifecycle and Virtual DOM concepts.",
+
+      "modelAnswer":
+      "React Virtual DOM updates only changed components instead of reloading the entire DOM, improving rendering efficiency and performance."
+    },
+
+    {
+      "question":
+      "Explain REST API architecture and why it is important in full stack applications.",
+
+      "skills": [
+        "REST API",
+        "Backend",
+        "API"
+      ],
+
+      "difficulty": "Medium",
+
+      "category": "Backend",
+
+      "marks": 15,
+
+      "keywords": [
+        "rest",
+        "api",
+        "http",
+        "client",
+        "server"
+      ],
+
+      "feedback":
+      "Improve API communication and architecture understanding.",
+
+      "modelAnswer":
+      "REST API architecture enables communication between frontend and backend systems using HTTP methods like GET, POST, PUT, and DELETE."
+    },
+
+    {
+      "question":
+      "How does JWT authentication work in web applications?",
+
+      "skills": [
+        "JWT",
+        "Authentication",
+        "Security"
+      ],
+
+      "difficulty": "Hard",
+
+      "category": "Authentication",
+
+      "marks": 20,
+
+      "keywords": [
+        "jwt",
+        "token",
+        "authentication",
+        "authorization",
+        "security"
+      ],
+
+      "feedback":
+      "Practice secure authentication workflows and token handling.",
+
+      "modelAnswer":
+      "JWT authentication works by generating a signed token after login, which is verified on protected requests for secure user authentication."
+    },
+
+    {
+      "question":
+      "What are the advantages of MongoDB in MERN stack applications?",
+
+      "skills": [
+        "MongoDB",
+        "Database",
+        "MERN"
+      ],
+
+      "difficulty": "Medium",
+
+      "category": "Database",
+
+      "marks": 15,
+
+      "keywords": [
+        "mongodb",
+        "nosql",
+        "database",
+        "mern",
+        "documents"
+      ],
+
+      "feedback":
+      "Improve NoSQL database and MERN architecture concepts.",
+
+      "modelAnswer":
+      "MongoDB provides flexible NoSQL document storage, scalability, and easy integration with JavaScript-based MERN stack applications."
+    },
+
+    {
+      "question":
+      "Explain the difference between Git and GitHub.",
+
+      "skills": [
+        "Git",
+        "GitHub",
+        "Version Control"
+      ],
+
+      "difficulty": "Easy",
+
+      "category": "Version Control",
+
+      "marks": 10,
+
+      "keywords": [
+        "git",
+        "github",
+        "repository",
+        "version",
+        "control"
+      ],
+
+      "feedback":
+      "Practice version control workflows and repository management concepts.",
+
+      "modelAnswer":
+      "Git is a version control system used to track code changes, while GitHub is a cloud platform used to host and collaborate on Git repositories."
+    },
+
+    {
+      "question":
+      "How would you optimize the performance of a React application?",
+
+      "skills": [
+        "React",
+        "Performance",
+        "Frontend"
+      ],
+
+      "difficulty": "Hard",
+
+      "category": "React",
+
+      "marks": 20,
+
+      "keywords": [
+        "memo",
+        "lazy loading",
+        "optimization",
+        "performance",
+        "rendering"
+      ],
+
+      "feedback":
+      "Improve understanding of React optimization techniques and rendering lifecycle.",
+
+      "modelAnswer":
+      "React performance can be optimized using memoization, lazy loading, code splitting, virtualization, and reducing unnecessary re-renders."
+    },
+
+    {
+      "question":
+      "What is middleware in Express.js?",
+
+      "skills": [
+        "Express.js",
+        "Backend",
+        "Middleware"
+      ],
+
+      "difficulty": "Medium",
+
+      "category": "Backend",
+
+      "marks": 15,
+
+      "keywords": [
+        "middleware",
+        "request",
+        "response",
+        "next",
+        "express"
+      ],
+
+      "feedback":
+      "Practice middleware flow and request-response lifecycle concepts.",
+
+      "modelAnswer":
+      "Middleware in Express.js are functions that execute during the request-response cycle and can modify requests, responses, or control application flow."
+    },
+
+    {
+      "question":
+      "How do SQL and MongoDB differ?",
+
+      "skills": [
+        "SQL",
+        "MongoDB",
+        "Database"
+      ],
+
+      "difficulty": "Medium",
+
+      "category": "Database",
+
+      "marks": 15,
+
+      "keywords": [
+        "sql",
+        "mongodb",
+        "nosql",
+        "tables",
+        "documents"
+      ],
+
+      "feedback":
+      "Improve understanding of relational and NoSQL database systems.",
+
+      "modelAnswer":
+      "SQL databases use structured tables and relationships, while MongoDB stores flexible document-based NoSQL data."
+    },
+
+    {
+      "question":
+      "What are the steps involved in deploying a full stack application?",
+
+      "skills": [
+        "Deployment",
+        "Hosting",
+        "DevOps"
+      ],
+
+      "difficulty": "Hard",
+
+      "category": "Deployment",
+
+      "marks": 20,
+
+      "keywords": [
+        "deployment",
+        "hosting",
+        "server",
+        "frontend",
+        "backend"
+      ],
+
+      "feedback":
+      "Practice application deployment workflows and production environment setup.",
+
+      "modelAnswer":
+      "Deploying a full stack application involves preparing frontend and backend builds, configuring databases, setting environment variables, hosting services, and monitoring application performance."
+    },
+
+    {
+      "question":
+      "What is the purpose of useEffect in React?",
+
+      "skills": [
+        "React",
+        "Hooks",
+        "Frontend"
+      ],
+
+      "difficulty": "Easy",
+
+      "category": "React",
+
+      "marks": 10,
+
+      "keywords": [
+        "useeffect",
+        "hooks",
+        "side effects",
+        "api",
+        "render"
+      ],
+
+      "feedback":
+      "Practice React lifecycle and side effect handling concepts.",
+
+      "modelAnswer":
+      "useEffect is used to handle side effects such as API calls, timers, subscriptions, and DOM updates in React functional components."
+    },
+
+    {
+      "question":
+      "Explain the difference between authentication and authorization.",
+
+      "skills": [
+        "JWT",
+        "Authentication",
+        "Security"
+      ],
+
+      "difficulty": "Medium",
+
+      "category": "Security",
+
+      "marks": 15,
+
+      "keywords": [
+        "authentication",
+        "authorization",
+        "security",
+        "jwt",
+        "access"
+      ],
+
+      "feedback":
+      "Strengthen understanding of application security workflows.",
+
+      "modelAnswer":
+      "Authentication verifies user identity, while authorization determines what resources or actions the authenticated user can access."
+    },
+
+    {
+      "question":
+      "How does Express.js handle routing?",
+
+      "skills": [
+        "Express.js",
+        "Backend",
+        "Routing"
+      ],
+
+      "difficulty": "Medium",
+
+      "category": "Backend",
+
+      "marks": 15,
+
+      "keywords": [
+        "routing",
+        "express",
+        "middleware",
+        "request",
+        "response"
+      ],
+
+      "feedback":
+      "Practice backend route structuring and middleware flow.",
+
+      "modelAnswer":
+      "Express.js handles routing using methods like app.get(), app.post(), app.put(), and app.delete() to process incoming requests."
+    },
+
+    {
+      "question":
+      "What are the advantages of component-based architecture in React?",
+
+      "skills": [
+        "React",
+        "Frontend",
+        "Components"
+      ],
+
+      "difficulty": "Easy",
+
+      "category": "React",
+
+      "marks": 10,
+
+      "keywords": [
+        "components",
+        "reusability",
+        "modularity",
+        "react",
+        "frontend"
+      ],
+
+      "feedback":
+      "Improve understanding of scalable frontend architecture.",
+
+      "modelAnswer":
+      "Component-based architecture improves reusability, maintainability, scalability, and separation of concerns in frontend applications."
+    },
+
+    {
+      "question":
+      "How would you secure REST APIs in production applications?",
+
+      "skills": [
+        "REST API",
+        "Security",
+        "JWT"
+      ],
+
+      "difficulty": "Hard",
+
+      "category": "Security",
+
+      "marks": 20,
+
+      "keywords": [
+        "jwt",
+        "authentication",
+        "https",
+        "security",
+        "api"
+      ],
+
+      "feedback":
+      "Practice secure API development and authentication techniques.",
+
+      "modelAnswer":
+      "REST APIs can be secured using JWT authentication, HTTPS, input validation, rate limiting, CORS policies, and secure password hashing."
+    },
+
+    {
+      "question":
+      "What is normalization in SQL databases?",
+
+      "skills": [
+        "SQL",
+        "Database",
+        "Normalization"
+      ],
+
+      "difficulty": "Medium",
+
+      "category": "Database",
+
+      "marks": 15,
+
+      "keywords": [
+        "normalization",
+        "database",
+        "sql",
+        "tables",
+        "redundancy"
+      ],
+
+      "feedback":
+      "Improve database design and normalization concepts.",
+
+      "modelAnswer":
+      "Normalization organizes database tables to reduce redundancy and improve data integrity."
+    },
+
+    {
+      "question":
+      "Explain asynchronous programming in JavaScript.",
+
+      "skills": [
+        "JavaScript",
+        "Async",
+        "Frontend"
+      ],
+
+      "difficulty": "Medium",
+
+      "category": "JavaScript",
+
+      "marks": 15,
+
+      "keywords": [
+        "async",
+        "await",
+        "promises",
+        "callbacks",
+        "javascript"
+      ],
+
+      "feedback":
+      "Practice asynchronous workflows and promise handling.",
+
+      "modelAnswer":
+      "Asynchronous programming allows JavaScript to execute tasks like API calls without blocking the main execution thread using callbacks, promises, and async/await."
+    },
+
+    {
+      "question":
+      "Why is Docker useful in full stack deployment?",
+
+      "skills": [
+        "Docker",
+        "Deployment",
+        "DevOps"
+      ],
+
+      "difficulty": "Medium",
+
+      "category": "Deployment",
+
+      "marks": 15,
+
+      "keywords": [
+        "docker",
+        "containers",
+        "deployment",
+        "devops",
+        "environment"
+      ],
+
+      "feedback":
+      "Practice containerization and deployment workflows.",
+
+      "modelAnswer":
+      "Docker helps package applications with dependencies into containers, ensuring consistent deployment across environments."
+    },
+
+    {
+      "question":
+      "What are React props and state?",
+
+      "skills": [
+        "React",
+        "Frontend",
+        "State Management"
+      ],
+
+      "difficulty": "Easy",
+
+      "category": "React",
+
+      "marks": 10,
+
+      "keywords": [
+        "props",
+        "state",
+        "react",
+        "components",
+        "frontend"
+      ],
+
+      "feedback":
+      "Strengthen React component communication concepts.",
+
+      "modelAnswer":
+      "Props are used to pass data between components, while state manages dynamic data inside a component."
+    },
+
+    {
+      "question":
+      "How would you improve the scalability of a full stack application?",
+
+      "skills": [
+        "Scalability",
+        "Backend",
+        "Architecture"
+      ],
+
+      "difficulty": "Hard",
+
+      "category": "System Design",
+
+      "marks": 20,
+
+      "keywords": [
+        "scalability",
+        "load balancing",
+        "caching",
+        "microservices",
+        "database"
+      ],
+
+      "feedback":
+      "Improve system design and scalable architecture concepts.",
+      "modelAnswer":
+      "Scalability can be improved using load balancing, caching, optimized database queries, microservices architecture, and cloud infrastructure."
+    }
+
+  ],
+
+  "Software Engineer": [
+
+    {
+      "question":
+      "What is the difference between stack and queue data structures?",
+
+      "skills": [
+        "DSA",
+        "Data Structures",
+        "Algorithms"
+      ],
+
+      "difficulty": "Easy",
+
+      "category": "DSA",
+
+      "marks": 10,
+
+      "keywords": [
+        "stack",
+        "queue",
+        "fifo",
+        "lifo",
+        "data structure"
+      ],
+
+      "feedback":
+      "Practice fundamental data structure concepts and real-world usage.",
+
+      "modelAnswer":
+      "Stack follows LIFO order while queue follows FIFO order."
+    },
+
+    {
+      "question":
+      "Explain the four pillars of Object-Oriented Programming.",
+
+      "skills": [
+        "OOP",
+        "Java",
+        "Programming"
+      ],
+
+      "difficulty": "Medium",
+
+      "category": "OOP",
+
+      "marks": 15,
+
+      "keywords": [
+        "encapsulation",
+        "inheritance",
+        "polymorphism",
+        "abstraction",
+        "oop"
+      ],
+
+      "feedback":
+      "Strengthen core OOP concepts and implementation understanding.",
+
+      "modelAnswer":
+      "The four pillars of OOP are encapsulation, inheritance, polymorphism, and abstraction."
+    },
+
+    {
+      "question":
+      "What is normalization in DBMS?",
+
+      "skills": [
+        "DBMS",
+        "SQL",
+        "Database"
+      ],
+
+      "difficulty": "Medium",
+
+      "category": "Database",
+
+      "marks": 15,
+
+      "keywords": [
+        "normalization",
+        "database",
+        "redundancy",
+        "sql",
+        "tables"
+      ],
+
+      "feedback":
+      "Improve database design and normalization concepts.",
+
+      "modelAnswer":
+      "Normalization organizes database tables to reduce redundancy and improve data integrity."
+    },
+
+    {
+      "question":
+      "What is the purpose of operating systems?",
+
+      "skills": [
+        "Operating System",
+        "OS",
+        "Computer Science"
+      ],
+
+      "difficulty": "Easy",
+
+      "category": "OS",
+
+      "marks": 10,
+
+      "keywords": [
+        "os",
+        "kernel",
+        "memory",
+        "process",
+        "system"
+      ],
+
+      "feedback":
+      "Practice operating system fundamentals and resource management concepts.",
+
+      "modelAnswer":
+      "An operating system manages hardware resources and provides services for software applications."
+    },
+
+    {
+      "question":
+      "Explain time complexity and why it is important.",
+
+      "skills": [
+        "Algorithms",
+        "Complexity",
+        "DSA"
+      ],
+
+      "difficulty": "Hard",
+
+      "category": "Algorithms",
+
+      "marks": 20,
+
+      "keywords": [
+        "time complexity",
+        "big o",
+        "algorithms",
+        "performance",
+        "efficiency"
+      ],
+
+      "feedback":
+      "Practice algorithm optimization and Big-O analysis concepts.",
+
+      "modelAnswer":
+      "Time complexity measures the efficiency of an algorithm based on input size and helps evaluate performance scalability."
+    },
+
+    {
+      "question":
+      "What is a deadlock in operating systems?",
+
+      "skills": [
+        "Operating System",
+        "OS",
+        "Deadlock"
+      ],
+
+      "difficulty": "Hard",
+
+      "category": "OS",
+
+      "marks": 20,
+
+      "keywords": [
+        "deadlock",
+        "process",
+        "resource",
+        "os",
+        "threads"
+      ],
+
+      "feedback":
+      "Strengthen operating system synchronization and process management concepts.",
+
+      "modelAnswer":
+      "Deadlock occurs when multiple processes wait indefinitely for resources held by each other."
+    },
+
+    {
+      "question":
+      "What is the difference between process and thread?",
+
+      "skills": [
+        "Operating System",
+        "Threads",
+        "Processes"
+      ],
+
+      "difficulty": "Medium",
+
+      "category": "OS",
+
+      "marks": 15,
+
+      "keywords": [
+        "process",
+        "thread",
+        "memory",
+        "execution",
+        "cpu"
+      ],
+
+      "feedback":
+      "Practice process management and multithreading concepts.",
+
+      "modelAnswer":
+      "A process is an independent executing program, while a thread is a lightweight execution unit inside a process."
+    },
+
+    {
+      "question":
+      "Explain inheritance in Object-Oriented Programming.",
+
+      "skills": [
+        "OOP",
+        "Inheritance",
+        "Programming"
+      ],
+
+      "difficulty": "Easy",
+
+      "category": "OOP",
+
+      "marks": 10,
+
+      "keywords": [
+        "inheritance",
+        "oop",
+        "class",
+        "object",
+        "parent"
+      ],
+
+      "feedback":
+      "Practice OOP relationships and reusable class design.",
+
+      "modelAnswer":
+      "Inheritance allows one class to acquire properties and behaviors of another class."
+    },
+
+    {
+      "question":
+      "What is Big-O notation?",
+
+      "skills": [
+        "Algorithms",
+        "Complexity",
+        "DSA"
+      ],
+
+      "difficulty": "Medium",
+
+      "category": "Algorithms",
+
+      "marks": 15,
+
+      "keywords": [
+        "big o",
+        "complexity",
+        "algorithms",
+        "performance",
+        "analysis"
+      ],
+
+      "feedback":
+      "Improve algorithm analysis and optimization understanding.",
+
+      "modelAnswer":
+      "Big-O notation measures the worst-case time or space complexity of an algorithm."
+    },
+
+    {
+      "question":
+      "What is indexing in databases?",
+
+      "skills": [
+        "DBMS",
+        "SQL",
+        "Indexing"
+      ],
+
+      "difficulty": "Medium",
+
+      "category": "Database",
+
+      "marks": 15,
+
+      "keywords": [
+        "indexing",
+        "database",
+        "sql",
+        "query",
+        "performance"
+      ],
+
+      "feedback":
+      "Practice query optimization and database indexing concepts.",
+
+      "modelAnswer":
+      "Indexing improves database query performance by allowing faster data retrieval."
+    }
+
+  ]
+
+}

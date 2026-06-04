@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0">
+
+<title>SkillPilot </title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='css/skillpilotstyle.css') }}?v=5">
+
+</head>
+
+<body>
+
+<!-- HERO SECTION -->
+
+<div class="hero-section">
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+
+        <div class="hero-layout">
+
+        <div class="hero-left">
+
+        <!-- AUTH BUTTONS -->
+
+        <div class="auth-buttons">
+
+            {% if session.get('user') %}
+
+                <a href="/logout">
+
+                    <button class="auth-btn">
+
+                        Logout
+
+                    </button>
+
+                </a>
+
+            {% else %}
+
+                <a href="/login">
+
+                    <button class="auth-btn">
+
+                        Login
+
+                    </button>
+
+                </a>
+
+                <a href="/signup">
+
+                    <button class="auth-btn signup-btn">
+
+                        Create Account
+
+                    </button>
+
+                </a>
+
+            {% endif %}
+
+        </div>
+
+        <h1>
+
+            🚀 SkillPilot 
+
+        </h1>
+
+        <h2>
+
+             Career Preparation Platform
+
+        </h2>
+
+        <p>
+
+            Analyze resumes, detect skill gaps,
+            improve weak areas, prepare for interviews,
+            and track your professional growth intelligently.
+        </p>
+
+        <!-- SHOW FORM ONLY AFTER LOGIN -->
+
+         </div>
+
+         <div class="hero-right">
+
+         {% if session.get('user') %}
+
+         <form action="/analyze"
+         method="POST"
+         enctype="multipart/form-data">
+
+            <div class="upload-card">
+
+                <h2>
+
+                    Upload Resume
+
+                </h2>
+
+                <input
+                type="file"
+                name="resume"
+                required>
+
+                <h2>
+
+                    Select Target Role
+
+                </h2>
+
+                <select
+                name="role"
+                required>
+
+                    <option value="">
+
+                        Choose Role
+
+                    </option>
+
+                    <option>
+
+                        Frontend Developer
+
+                    </option>
+
+                    <option>
+
+                        Backend Developer
+
+                    </option>
+
+                    <option>
+
+                        Full Stack Developer
+
+                    </option>
+
+                    <option>
+
+                        Data Analyst
+
+                    </option>
+
+                    <option>
+
+                        Data Scientist
+
+                    </option>
+
+                    <option>
+
+                        AI Engineer
+
+                    </option>
+
+                    <option>
+
+                        Software Engineer
+
+                    </option>
+
+                    <option>
+
+                        DevOps Engineer
+
+                    </option>
+
+                </select>
+
+                <button type="submit">
+
+                    Analyze Resume
+
+                </button>
+
+            </div>
+
+        </form>
+
+        {% else %}
+
+        <!-- LOGIN MESSAGE -->
+
+        <div class="upload-card">
+
+            <h2>
+
+                Get Started with SkillPilot
+
+            </h2>
+
+            <p>
+
+                
+                Login or create an account to
+                analyze resumes, discover skill gaps,
+                and accelerate your career growth
+
+            </p>
+
+        </div>
+
+        {% endif %}
+
+         </div>
+
+      </div>
+
+   </div>
+
+</div>
+
+<!-- FEATURES SECTION -->
+
+<div class="features-section">
+
+    <h2>
+
+        Platform Features
+
+    </h2>
+
+    <div class="features-grid">
+
+        <div class="feature-card">
+
+            <h3>
+
+                📄 Resume Analysis
+
+            </h3>
+
+            <p>
+
+                Analyze resume quality,
+                ATS compatibility,
+                and missing technical skills.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <h3>
+
+                🎯 Skill Gap Detection
+
+            </h3>
+
+            <p>
+
+                Compare resume skills
+                with industry-required technologies.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <h3>
+
+                📚 Personalized Learning
+
+            </h3>
+
+            <p>
+
+                Get adaptive learning roadmaps
+                and recommended resources.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <h3>
+
+                🎤 Mock Interview
+
+            </h3>
+
+            <p>
+
+                Practice role-based
+                interview questions intelligently.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <h3>
+
+                🧠 Weak Area Training
+
+            </h3>
+
+            <p>
+
+                Improve missing skills using
+                focused retraining plans.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <h3>
+
+                📊 Progress Analytics
+
+            </h3>
+
+            <p>
+
+                Track improvement history
+                and career readiness visually.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- WORKFLOW SECTION -->
+
+<div class="workflow-section">
+
+    <h2>
+
+        How SkillPilot Works
+
+    </h2>
+
+    <div class="workflow-steps">
+
+        <div class="workflow-card">
+
+            Signup / Login
+
+        </div>
+
+        <div class="workflow-arrow">
+
+            ↓
+
+        </div>
+
+        <div class="workflow-card">
+
+            Upload Resume
+
+        </div>
+
+        <div class="workflow-arrow">
+
+            ↓
+
+        </div>
+
+        <div class="workflow-card">
+
+            Detect Skill Gaps
+
+        </div>
+
+        <div class="workflow-arrow">
+
+            ↓
+
+        </div>
+
+        <div class="workflow-card">
+
+            Learn & Practice
+
+        </div>
+
+        <div class="workflow-arrow">
+
+            ↓
+
+        </div>
+
+        <div class="workflow-card">
+
+            Assessment & Interview
+
+        </div>
+
+        <div class="workflow-arrow">
+
+            ↓
+
+        </div>
+
+        <div class="workflow-card">
+
+            Track Improvement
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>
+
+        SkillPilot  © 2026
+
+    </h3>
+
+    <p>
+
+        Intelligent Career Preparation Platform
+
+    </p>
+
+</footer>
+
+</body>
+
+</html>

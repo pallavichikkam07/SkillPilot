@@ -1,0 +1,231 @@
+{
+  "react": {
+
+    "practice_tasks": [
+
+      "Build a reusable React component.",
+
+      "Practice React state management.",
+
+      "Create a small CRUD application using React."
+
+    ],
+
+    "improvement_tips": [
+
+      "Focus on understanding props and state clearly.",
+
+      "Practice component-based architecture regularly.",
+
+      "Learn React Hooks with small mini-projects."
+
+    ]
+  },
+
+  "node.js": {
+
+    "practice_tasks": [
+
+      "Build a REST API using Node.js and Express.js.",
+
+      "Create CRUD operations with asynchronous handling.",
+
+      "Develop a backend authentication system."
+
+    ],
+
+    "improvement_tips": [
+
+      "Understand event-driven architecture clearly.",
+
+      "Practice async/await and promise handling.",
+
+      "Learn middleware and routing concepts deeply."
+
+    ]
+  },
+
+  "express.js": {
+
+    "practice_tasks": [
+
+      "Create Express.js routes for APIs.",
+
+      "Implement middleware for authentication.",
+
+      "Build backend APIs with proper status codes."
+
+    ],
+
+    "improvement_tips": [
+
+      "Focus on request-response lifecycle.",
+
+      "Understand routing and middleware execution.",
+
+      "Practice structuring scalable backend applications."
+
+    ]
+  },
+
+  "mongodb": {
+
+    "practice_tasks": [
+
+      "Create MongoDB collections and documents.",
+
+      "Practice CRUD operations using MongoDB.",
+
+      "Build database schemas for applications."
+
+    ],
+
+    "improvement_tips": [
+
+      "Understand NoSQL database concepts clearly.",
+
+      "Practice aggregation pipelines regularly.",
+
+      "Learn schema design optimization."
+
+    ]
+  },
+
+  "jwt": {
+
+    "practice_tasks": [
+
+      "Implement JWT authentication in a backend project.",
+
+      "Create protected routes using tokens.",
+
+      "Practice login and session validation."
+
+    ],
+
+    "improvement_tips": [
+
+      "Understand token generation and verification.",
+
+      "Learn authentication flow deeply.",
+
+      "Practice secure session handling."
+
+    ]
+  },
+
+  "rest api": {
+
+    "practice_tasks": [
+
+      "Build REST APIs using Express.js.",
+
+      "Implement GET, POST, PUT, and DELETE methods.",
+
+      "Connect frontend applications to APIs."
+
+    ],
+
+    "improvement_tips": [
+
+      "Understand REST architecture principles.",
+
+      "Practice API response structuring.",
+
+      "Learn HTTP methods and status codes thoroughly."
+
+    ]
+  },
+
+  "html": {
+
+    "practice_tasks": [
+
+      "Build semantic webpage layouts.",
+
+      "Create accessible HTML forms.",
+
+      "Develop a portfolio webpage."
+
+    ],
+
+    "improvement_tips": [
+
+      "Use semantic HTML tags properly.",
+
+      "Practice accessibility standards.",
+
+      "Focus on clean document structure."
+
+    ]
+  },
+
+  "css": {
+
+    "practice_tasks": [
+
+      "Build responsive webpage layouts.",
+
+      "Practice Flexbox and Grid systems.",
+
+      "Create animated UI components."
+
+    ],
+
+    "improvement_tips": [
+
+      "Focus on responsive design techniques.",
+
+      "Practice layout optimization.",
+
+      "Learn advanced CSS styling patterns."
+
+    ]
+  },
+
+  "javascript": {
+
+    "practice_tasks": [
+
+      "Practice DOM manipulation projects.",
+
+      "Build interactive web applications.",
+
+      "Implement asynchronous JavaScript examples."
+
+    ],
+
+    "improvement_tips": [
+
+      "Understand ES6 concepts deeply.",
+
+      "Practice functions and asynchronous workflows.",
+
+      "Focus on real-world mini-projects."
+
+    ]
+  },
+
+  "git": {
+
+    "practice_tasks": [
+
+      "Create and manage Git repositories.",
+
+      "Practice branching and merging workflows.",
+
+      "Push projects to GitHub regularly."
+
+    ],
+
+    "improvement_tips": [
+
+      "Understand version control fundamentals.",
+
+      "Practice collaborative workflows.",
+
+      "Learn professional Git branching strategies."
+
+    ]
+  }
+}

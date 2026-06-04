@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0">
+
+<title>Interview Result</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='css/skillpilotstyle.css') }}">
+
+<style>
+
+body {
+
+    margin: 0;
+    padding: 0;
+
+    font-family: Arial, sans-serif;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b,
+        #111827
+    );
+
+    color: white;
+
+}
+
+.result-container {
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 40px 0;
+
+}
+
+.result-title {
+
+    text-align: center;
+
+    font-size: 52px;
+
+    margin-bottom: 40px;
+
+    font-weight: bold;
+
+}
+
+.result-grid {
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(250px, 1fr)
+    );
+
+    gap: 25px;
+
+}
+
+.result-card {
+
+    background:
+    rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(12px);
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.35);
+
+    transition: 0.3s;
+
+}
+
+.result-card:hover {
+
+    transform:
+    translateY(-5px);
+
+}
+
+.card-title {
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+
+}
+
+.score {
+
+    font-size: 58px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    margin-top: 15px;
+
+}
+
+.performance-box {
+
+    margin-top: 40px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(12px);
+
+    border-radius: 22px;
+
+    padding: 35px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.35);
+
+}
+
+.performance-title {
+
+    font-size: 36px;
+
+    font-weight: bold;
+
+    margin-bottom: 25px;
+
+}
+
+.skill-list {
+
+    margin-top: 15px;
+
+}
+
+.skill-item {
+
+    padding: 14px 0;
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.1);
+
+    font-size: 22px;
+
+}
+
+.feedback-box {
+
+    margin-top: 40px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(12px);
+
+    border-radius: 22px;
+
+    padding: 35px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.35);
+
+}
+
+.feedback-text {
+
+    font-size: 22px;
+
+    line-height: 1.9;
+
+}
+
+.recommendation {
+
+    margin-top: 30px;
+
+    text-align: center;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+}
+
+.answer-card {
+
+    margin-top: 30px;
+
+    padding: 28px;
+
+    border-radius: 18px;
+
+    background:
+    rgba(255,255,255,0.05);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+}
+
+.answer-question {
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    margin-bottom: 18px;
+
+    line-height: 1.5;
+
+}
+
+.answer-text {
+
+    margin-top: 14px;
+
+    font-size: 20px;
+
+    line-height: 1.8;
+
+}
+
+.answer-label {
+
+    font-weight: bold;
+
+    color: #60a5fa;
+
+}
+
+.home-btn {
+
+    display: block;
+
+    width: 280px;
+
+    margin: 50px auto;
+
+    padding: 18px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #3b82f6,
+        #8b5cf6
+    );
+
+    color: white;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+.home-btn:hover {
+
+    transform: scale(1.05);
+
+}
+
+@media(max-width:768px){
+
+    .result-title {
+
+        font-size: 34px;
+
+    }
+
+    .score {
+
+        font-size: 42px;
+
+    }
+
+    .performance-title {
+
+        font-size: 28px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="result-container">
+
+    <!-- TITLE -->
+
+    <h1 class="result-title">
+
+        🚀 AI Interview Analytics
+
+    </h1>
+
+    <!-- SCORE CARDS -->
+
+    <div class="result-grid">
+
+        <div class="result-card">
+
+            <div class="card-title">
+
+                💻 Technical Score
+
+            </div>
+
+            <div class="score">
+
+                {{ technical_score }}%
+
+            </div>
+
+        </div>
+
+        <div class="result-card">
+
+            <div class="card-title">
+
+                🗣 Communication Score
+
+            </div>
+
+            <div class="score">
+
+                {{ communication_score }}%
+
+            </div>
+
+        </div>
+
+        <div class="result-card">
+
+            <div class="card-title">
+
+                🔥 Confidence Score
+
+            </div>
+
+            <div class="score">
+
+                {{ confidence_score }}%
+
+            </div>
+
+        </div>
+
+        <div class="result-card">
+
+            <div class="card-title">
+
+                🏆 Overall Performance
+
+            </div>
+
+            <div class="score">
+
+                {{ overall_score }}%
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PERFORMANCE ANALYSIS -->
+
+    <div class="performance-box">
+
+        <div class="performance-title">
+
+            📈 Performance Analysis
+
+        </div>
+
+        <h2>
+
+            Performance Level:
+            {{ performance }}
+
+        </h2>
+
+        <h3>
+
+            ✅ Strong Areas
+
+        </h3>
+
+        <div class="skill-list">
+
+            {% for skill in strong_areas %}
+
+            <div class="skill-item">
+
+                ✔ {{ skill }}
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <h3 style="margin-top:35px;">
+
+            ⚠ Improvement Areas
+
+        </h3>
+
+        <div class="skill-list">
+
+            {% for skill in weak_areas %}
+
+            <div class="skill-item">
+
+                ⚠ {{ skill }}
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <!-- AI FEEDBACK -->
+
+    <div class="feedback-box">
+
+        <div class="performance-title">
+
+            🤖 AI Feedback
+
+        </div>
+
+        <div class="feedback-text">
+
+            {{ ai_feedback }}
+
+        </div>
+
+        <div class="recommendation">
+
+            {{ recommendation }}
+
+        </div>
+
+    </div>
+
+    <!-- ANSWER REVIEW -->
+
+    <div class="performance-box">
+
+        <div class="performance-title">
+
+            📝 Interview Answer Review
+
+        </div>
+
+        {% for item in submitted_answers %}
+
+        <div class="answer-card">
+
+            <!-- QUESTION -->
+
+            <div class="answer-question">
+
+                ❓ {{ item.question }}
+
+            </div>
+
+            <!-- USER RESPONSE -->
+
+            <div class="answer-text">
+
+                <span class="answer-label">
+
+                    Your Response:
+
+                </span>
+
+                {% if item.answer|length > 5 %}
+
+                    {{ item.answer }}
+
+                {% else %}
+
+                    <span style="color:#f87171;">
+
+                        Insufficient answer provided.
+
+                    </span>
+
+                {% endif %}
+
+            </div>
+
+            <!-- EXPECTED CONCEPTS -->
+
+            <div class="answer-text">
+
+                <span class="answer-label">
+
+                    Expected Concepts:
+
+                </span>
+
+                {{ item.keywords | join(', ') }}
+
+            </div>
+
+            <!-- DIFFICULTY -->
+
+            <div class="answer-text">
+
+                <span class="answer-label">
+
+                    Difficulty:
+
+                </span>
+
+                {{ item.difficulty }}
+
+            </div>
+
+            <!-- RECOMMENDED ANSWER -->
+
+            <div class="answer-text">
+
+                <span class="answer-label">
+
+                    Recommended Answer:
+
+                </span>
+
+                {{ item.modelAnswer }}
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <!-- BUTTON -->
+
+    <button
+
+    class="home-btn"
+
+    onclick="window.location.href='/'">
+
+        Back To Dashboard
+
+    </button>
+
+</div>
+
+</body>
+
+</html>
