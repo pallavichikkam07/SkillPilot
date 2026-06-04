@@ -2195,37 +2195,9 @@ SCROLLBAR
 /* =========================
 MOBILE RESPONSIVE
 ========================= */
-
 @media(max-width:1024px){
 
-    .dashboard-container{
-
-        flex-direction:column;
-    }
-
-    .sidebar{
-
-        width:100%;
-
-        height:auto;
-
-        position:relative;
-
-        border-right:none;
-
-        border-bottom:
-        1px solid rgba(255,255,255,0.05);
-    }
-
-    .main-content{
-        padding:20px;
-        margin-left:0;
-        width:100%;
-        max-width:100%;
-    }
-
     .top-cards{
-
         grid-template-columns:
         repeat(auto-fit,minmax(220px,1fr));
     }
@@ -3051,17 +3023,17 @@ MOBILE SIDEBAR
 
     .sidebar{
 
-        position:fixed;
+    position:fixed;
 
-        left:-280px;
+    left:-280px;
 
-        top:0;
+    top:0;
 
-        height:100vh;
+    height:100vh;
 
-        z-index:9999;
+    z-index:9999;
 
-        transition:left 0.4s ease;
+    transition:left 0.4s ease;
     }
 
     .sidebar.active{
