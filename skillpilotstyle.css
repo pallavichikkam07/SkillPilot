@@ -550,6 +550,7 @@ footer h3{
     width:100%;
 }
 
+
 /* =========================
 SIDEBAR
 ========================= */
@@ -2217,8 +2218,10 @@ MOBILE RESPONSIVE
     }
 
     .main-content{
-
         padding:20px;
+        margin-left:0;
+        width:100%;
+        max-width:100%;
     }
 
     .top-cards{
@@ -3064,6 +3067,11 @@ MOBILE SIDEBAR
     .sidebar.active{
 
         left:0;
+    }
+    .main-content{
+        margin-left:0 !important;
+        width:100% !important;
+        padding:15px;
     }
 }
 /* =========================
