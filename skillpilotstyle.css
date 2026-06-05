@@ -2195,7 +2195,8 @@ SCROLLBAR
 /* =========================
 MOBILE RESPONSIVE
 ========================= */
-@media(max-width:1024px){
+
+@media (max-width:1024px){
 
     .top-cards{
         grid-template-columns:
@@ -2203,185 +2204,123 @@ MOBILE RESPONSIVE
     }
 }
 
-@media(max-width:768px){
+@media (max-width:768px){
+
+    /* HERO SECTION */
+
+    .hero-section{
+        padding:20px 10px;
+    }
+
+    .hero-content{
+        padding:30px 15px;
+        width:100%;
+    }
+
+    .hero-layout{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        gap:30px;
+    }
+
+    .hero-left,
+    .hero-right{
+        width:100%;
+        max-width:100%;
+        flex:none;
+    }
 
     .hero-content h1{
-
-        font-size:42px;
+        font-size:38px;
+        line-height:1.2;
     }
 
     .hero-content h2{
-
-        font-size:24px;
+        font-size:22px;
     }
 
     .hero-content p{
-
         font-size:16px;
+        line-height:1.6;
     }
+
+    /* AUTH BUTTONS */
+
+    .auth-buttons{
+        position:relative;
+        top:0;
+        right:0;
+        justify-content:center;
+        flex-wrap:wrap;
+        margin-bottom:25px;
+    }
+
+    /* UPLOAD CARD */
 
     .upload-card{
-
-        max-width:450px;
-
         width:100%;
-
-        padding:25px;
+        max-width:100%;
+        padding:20px;
+        margin:0 auto;
     }
 
+    /* DASHBOARD */
+
     .top-navbar{
-
         flex-direction:column;
-
         gap:20px;
-
         text-align:center;
-
         padding:22px;
     }
 
     .top-navbar h2{
-
         font-size:24px;
     }
 
     .top-cards{
-
         grid-template-columns:1fr;
     }
 
     .dashboard-card{
-
         padding:22px;
     }
 
     .question-info{
-
         flex-direction:column;
     }
 
-    .auth-buttons{
+    /* ROADMAP */
 
-        position:relative;
-
-        top:0;
-
-        justify-content:center;
-
-        margin-bottom:30px;
-    }
     #roadmap .roadmap-flow{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:70px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:50px;
     }
+
     .roadmap-box{
-
-    display:flex;
-
-    gap:20px;
-
-    overflow-x:auto;
+        display:flex;
+        gap:20px;
+        overflow-x:auto;
     }
+
+    /* SKILLS */
 
     .skills-container{
-
         gap:10px;
     }
 
     .skills-container span{
-
         font-size:14px;
-
         padding:10px 16px;
     }
 
     canvas{
-
         max-width:100% !important;
         height:auto !important;
     }
-    .hero-layout{
-
-        flex-direction:column;
-
-        text-align:center;
-
-        gap:40px;
-    }
-
-    .hero-left{
-
-        max-width:100%;
-    }
-
-    .hero-right{
-
-        width:100%;
-    }
-
-    .hero-content{
-
-        padding:60px 25px;
-    }
-
-    .auth-buttons{
-
-        justify-content:center;
-    }
-}
-/* =========================
-SECTION ANIMATIONS
-========================= */
-
-.dashboard-card,
-.card-box,
-.week-card,
-.roadmap-card{
-
-    animation:
-    fadeUp 0.7s ease;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,0.25);
-}
-/* =========================
-CURSOR GLOW
-========================= */
-
-.cursor-glow{
-
-    position:fixed;
-
-    width:280px;
-
-    height:280px;
-
-    background:
-    radial-gradient(
-        circle,
-        rgba(0,198,255,0.18),
-        transparent 70%
-    );
-
-    border-radius:50%;
-
-    pointer-events:none;
-
-    transform:
-    translate(-50%,-50%);
-
-    z-index:0;
-
-    transition:
-    transform 0.08s linear;
-
-    mix-blend-mode:screen;
 }
 /* =========================
 CHART CONTAINERS
