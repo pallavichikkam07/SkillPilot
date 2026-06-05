@@ -544,6 +544,12 @@ footer h3{
 
     color:#00c6ff;
 }
+.dashboard-container{
+    display:flex;
+    min-height:100vh;
+    width:100%;
+}
+
 
 /* =========================
 SIDEBAR
@@ -669,9 +675,9 @@ MAIN CONTENT
 
     margin-left:240px;
 
-    width:calc(100% - 240px);
+    width:auto;
 
-    max-width:1400px;
+    max-width:none;
 
     overflow-x:hidden;
 }
@@ -2189,35 +2195,9 @@ SCROLLBAR
 /* =========================
 MOBILE RESPONSIVE
 ========================= */
-
 @media(max-width:1024px){
 
-    .dashboard-container{
-
-        flex-direction:column;
-    }
-
-    .sidebar{
-
-        width:100%;
-
-        height:auto;
-
-        position:relative;
-
-        border-right:none;
-
-        border-bottom:
-        1px solid rgba(255,255,255,0.05);
-    }
-
-    .main-content{
-
-        padding:20px;
-    }
-
     .top-cards{
-
         grid-template-columns:
         repeat(auto-fit,minmax(220px,1fr));
     }
@@ -3033,34 +3013,6 @@ MOBILE MENU
 /* =========================
 MOBILE SIDEBAR
 ========================= */
-
-@media(max-width:768px){
-
-    .menu-toggle{
-
-        display:block;
-    }
-
-    .sidebar{
-
-        position:fixed;
-
-        left:-280px;
-
-        top:0;
-
-        height:100vh;
-
-        z-index:9999;
-
-        transition:left 0.4s ease;
-    }
-
-    .sidebar.active{
-
-        left:0;
-    }
-}
 /* =========================
 BUTTON RIPPLE EFFECT
 ========================= */
@@ -3135,4 +3087,39 @@ HERO SPLIT LAYOUT
     justify-content:center;
 
     align-items:center;
+}
+@media (max-width:768px){
+
+    .dashboard-container{
+        display:block;
+    }
+
+    .sidebar{
+        position:fixed;
+        top:0;
+        left:-240px;
+        width:240px;
+        height:100vh;
+        z-index:9999;
+        transition:left 0.3s ease;
+    }
+
+    .sidebar.active{
+        left:0;
+    }
+
+    .main-content{
+        margin-left:0 !important;
+        width:100% !important;
+        max-width:100% !important;
+        padding:15px !important;
+    }
+
+    .menu-toggle{
+        display:block !important;
+    }
+
+    .top-navbar{
+        margin-top:70px;
+    }
 }
